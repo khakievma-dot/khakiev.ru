@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XaMa — Инструкция по подключению</title>
+    <title>ХаМа — Инструкция по подключению</title>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -38,13 +38,29 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        h1 {
-            font-size: 32px;
-            font-weight: 900;
-            margin-bottom: 5px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 10px;
             margin-top: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            object-position: center;
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: 0;
         }
 
         p.subtitle {
@@ -217,7 +233,6 @@
             margin-bottom: 5px;
         }
 
-        /* Simple view specific styles */
         .simple-card {
             border-left: 4px solid var(--text-color);
             padding-left: 15px;
@@ -247,7 +262,10 @@
 
     <div class="container">
         <header>
-            <h1>XaMa</h1>
+            <div class="logo-container">
+                <img src="../XM.jpg" alt="ХаМа Logo" class="logo-img">
+                <h1>ХаМа</h1>
+            </div>
             <p class="subtitle">Умные режимы и новые протоколы</p>
             <a href="https://khakiev.ru" class="home-btn">← Перейти на khakiev.ru</a>
         </header>
