@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ХаМа — Инструкция по подключению</title>
+    
+    <!-- Настройки для красивого превью ссылки (Open Graph) -->
+    <meta property="og:title" content="ХаМа — Рекомендации по настройке">
+    <meta property="og:description" content="Решение проблем с WhatsApp на iOS, умные режимы и новые протоколы обхода блокировок.">
+    <meta property="og:image" content="https://khakiev.ru/XM.jpg">
+    <meta property="og:url" content="https://khakiev.ru/info-kvn">
+    <meta property="og:type" content="website">
+
     <style>
         :root {
             --bg-color: #ffffff;
@@ -182,6 +190,7 @@
         .warning-box.apple {
             border-color: #007aff;
             margin-top: 10px;
+            margin-bottom: 20px;
         }
         .warning-box.apple h3 {
             color: #007aff;
@@ -274,6 +283,17 @@
         <div id="simple" class="content-section active">
             
             <div class="warning-box apple">
+                <h3>Зависает WhatsApp?</h3>
+                <p>Если у вас не отправляются сообщения и не грузятся фото в WhatsApp, но при этом Instagram, YouTube и Telegram работают отлично — <b>проблема не в нашей сети ХаМа</b>. Это конфликт самого мессенджера WhatsApp с системой iOS и приложением Happ.</p>
+                <p>Чтобы минимизировать эти зависания, мы сделали два специальных протокола. Вы найдете их в списке под значками:</p>
+                <ul style="padding-left: 20px; margin-bottom: 15px;">
+                    <li><b>🍏 Тестовый (VLESS / TCP)</b></li>
+                    <li><b>🍏🐛 Тестовый (VLESS / WS)</b></li>
+                </ul>
+                <p style="margin-bottom: 0;">Если WhatsApp начал капризничать, просто переключитесь на один из них, либо немного подождите — сообщения уйдут сами.</p>
+            </div>
+
+            <div class="warning-box apple" style="margin-top: 0;">
                 <h3>Пропали обновления Happ?</h3>
                 <p>Если в вашем App Store стоит регион «Россия», приложение <b>Happ</b> не будет получать обновления, так как его удалили из российского магазина. Без обновлений новые крутые функции просто не будут у вас работать.</p>
                 <p><b>Как решить проблему раз и навсегда:</b></p>
@@ -287,7 +307,7 @@
 
             <p style="margin-top: 25px;">Мы обновили систему! Теперь она сама ищет быстрые сервера, чтобы интернет не тормозил. Вот что вам нужно знать, чтобы всё работало идеально.</p>
             
-            <h2>Что нажимать на каждый день?</h2>
+            <h2>Основные режимы работы</h2>
             
             <div class="simple-card">
                 <h3>🔀 Авто | Умный</h3>
@@ -297,7 +317,7 @@
             
             <div class="simple-card">
                 <h3>🌐 Авто | Полный</h3>
-                <p><b>Включайте, если глючит WhatsApp на Айфоне.</b></p>
+                <p><b>Глобальный режим.</b></p>
                 <p>В этом режиме VPN работает абсолютно для всех приложений на телефоне. Отлично помогает, если не грузятся картинки и кружочки. Но из-за этого могут временно не открываться российские банки.</p>
             </div>
             
@@ -315,7 +335,7 @@
                 </li>
                 <li>
                     <div class="protocol-title">2️⃣ Приписка "gRPC"</div>
-                    <div><b>Спасение для iPhone.</b> Если уведомления приходят с опозданием или не проходят звонки — жмите сюда.</div>
+                    <div><b>Скрытный режим.</b> Если уведомления приходят с опозданием или не проходят звонки — жмите сюда.</div>
                 </li>
                 <li>
                     <div class="protocol-title">3️⃣ Приписка "xHTTP"</div>
@@ -337,6 +357,19 @@
         <!-- ПОДРОБНАЯ ВЕРСИЯ -->
         <div id="detailed" class="content-section">
             
+            <div class="card" style="border-left: 4px solid #007aff;">
+                <h3 style="margin-top: 0; color: #007aff;"><span class="emoji-icon">🍏</span> Проблема маршрутизации WhatsApp (iOS)</h3>
+                <span class="label">Суть проблемы</span>
+                <p>На устройствах Apple наблюдается специфический баг: сообщения в WhatsApp зависают на стадии отправки, а медиафайлы не прогружаются. Важно понимать, что если в этот же момент Telegram, YouTube и Instagram работают корректно и без задержек — <b>инфраструктура ХаМа функционирует исправно</b>. Проблема кроется в конфликте сетевого стека iOS, внутренних алгоритмов работы самого WhatsApp и клиента Happ.</p>
+                
+                <span class="label">Временное решение (Workaround)</span>
+                <p>Поскольку проблема находится на стороне Apple и разработчиков Happ, мы развернули два кастомных узла с особыми настройками транспорта, чтобы минимизировать сбои "keep-alive" пакетов WhatsApp. Если мессенджер завис, переключитесь на один из следующих протоколов:</p>
+                <ul style="padding-left: 20px; margin-bottom: 0; font-size: 15px;">
+                    <li><b>Тестовый 🍏 (VLESS / TCP / REALITY)</b></li>
+                    <li><b>Тестовый 🍏🐛 (VLESS / WS)</b></li>
+                </ul>
+            </div>
+
             <div class="card" style="border-left: 4px solid #007aff;">
                 <h3 style="margin-top: 0; color: #007aff;"><span class="emoji-icon">🍏</span> Обновление клиента Happ (iOS)</h3>
                 <span class="label">Суть проблемы</span>
