@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XaMa — Инструкция по подключению</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #333333;
+            --border-color: #dddddd;
+            --bg-secondary: #f9f9f9;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 5px;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        p.subtitle {
+            color: #666;
+            font-size: 15px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+
+        .home-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Tabs styling */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            background-color: var(--bg-secondary);
+            padding: 5px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 10px;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Content styling */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--text-color);
+            padding-left: 10px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .emoji-icon {
+            font-style: normal;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .label {
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+            display: block;
+            margin-bottom: 4px;
+            margin-top: 12px;
+        }
+        
+        .card p:first-child .label {
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background-color: #fff;
+            border: 2px solid var(--text-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .warning-box.shield::before {
+            content: "🛡️ ЭКСТРЕННО";
+        }
+
+        .warning-box::before {
+            content: "⚠️ ВАЖНО";
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: var(--bg-color);
+            padding: 0 10px;
+            font-weight: 800;
+            font-size: 14px;
+        }
+        
+        .protocol-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .protocol-list li {
+            border-bottom: 1px dashed var(--border-color);
+            padding: 15px 0;
+        }
+        
+        .protocol-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .protocol-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        /* Simple view specific styles */
+        .simple-card {
+            border-left: 4px solid var(--text-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .simple-card h3 {
+            margin-top: 0;
+        }
+
+        .highlight {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 30px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>XaMa</h1>
+            <p class="subtitle">Умные режимы и новые протоколы</p>
+            <a href="https://khakiev.ru" class="home-btn">← Перейти на khakiev.ru</a>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('simple')">Простыми словами</button>
+            <button class="tab-btn" onclick="switchTab('detailed')">Подробно</button>
+        </div>
+
+        <!-- ПРОСТАЯ ВЕРСИЯ -->
+        <div id="simple" class="content-section active">
+            <p>Мы обновили систему! Теперь она сама ищет быстрые сервера, чтобы интернет не тормозил. Вот что вам нужно знать, чтобы всё работало идеально.</p>
+            
+            <h2>Что нажимать на каждый день?</h2>
+            
+            <div class="simple-card">
+                <h3>🔀 Авто | Умный</h3>
+                <p><b>Включайте это в 90% случаев.</b></p>
+                <p>Система сама включит VPN для Инстаграма и Ютуба, но при этом ваши банковские приложения (Сбер, Тинькофф, Госуслуги) будут работать как обычно, без VPN. Включили один раз и забыли.</p>
+            </div>
+            
+            <div class="simple-card">
+                <h3>🌐 Авто | Полный</h3>
+                <p><b>Включайте, если глючит WhatsApp на Айфоне.</b></p>
+                <p>В этом режиме VPN работает абсолютно для всех приложений на телефоне. Отлично помогает, если не грузятся картинки и кружочки. Но из-за этого могут временно не открываться российские банки.</p>
+            </div>
+            
+            <div class="warning-box">
+                <p style="margin:0">Если вдруг "Авто-режим" перестал работать (провайдер начал блокировки), просто прокрутите список ниже и выберите любую конкретную страну вручную.</p>
+            </div>
+
+            <h2>Если выбираете страну вручную:</h2>
+            <p>Под каждой страной есть 4 варианта. Что они значат:</p>
+            
+            <ul class="protocol-list">
+                <li>
+                    <div class="protocol-title">1️⃣ Обычное название (например: Германия)</div>
+                    <div>Золотой стандарт. Выбирайте его первым, если всё работает хорошо.</div>
+                </li>
+                <li>
+                    <div class="protocol-title">2️⃣ Приписка "gRPC"</div>
+                    <div><b>Спасение для iPhone.</b> Если уведомления приходят с опозданием или не проходят звонки — жмите сюда.</div>
+                </li>
+                <li>
+                    <div class="protocol-title">3️⃣ Приписка "xHTTP"</div>
+                    <div><b>Бронебойный вариант.</b> Выбирайте, если оператор жестко блокирует интернет и другие кнопки не работают.</div>
+                </li>
+                <li>
+                    <div class="protocol-title">4️⃣ Приписка "HS2"</div>
+                    <div><b>Для видео и Android.</b> Самый быстрый вариант, чтобы смотреть YouTube в отличном качестве. На мобильном интернете может не работать, лучше использовать на домашнем Wi-Fi.</div>
+                </li>
+            </ul>
+
+            <h2 style="margin-top: 40px;">Крайние меры: Белые списки 🛡️</h2>
+            <div class="warning-box shield">
+                <p style="margin:0"><b>Когда нажимать:</b> Если интернет в стране заблокировали "наглухо" и не работает вообще ничего, кроме официальных государственных сайтов.</p>
+            </div>
+            <p>Этот режим — наша "красная кнопка" на случай тотальных блокировок. Он хитро прячет ваш трафик, притворяясь, будто вы заходите на разрешенные государством сайты (например, на Госуслуги или ВК). Используйте эти кнопки <span class="highlight">только если все остальные варианты перестали подключаться</span>.</p>
+        </div>
+
+        <!-- ПОДРОБНАЯ ВЕРСИЯ -->
+        <div id="detailed" class="content-section">
+            <p>Система претерпела глубокую модернизацию. Мы интегрировали автоматические балансировщики нагрузки (Load Balancers) и развернули новейшие транспортные протоколы для обхода систем глубокого анализа трафика (DPI). Ниже представлено подробное техническое описание режимов.</p>
+            
+            <h2>Умные Авто-режимы <span class="emoji-icon">🤖</span></h2>
+            <p>Эти режимы используют скрипты для непрерывного мониторинга сети (Health Checks). Клиент оценивает пинг до всех доступных нод и автоматически перенаправляет ваш трафик на наименее загруженный сервер, обеспечивая отказоустойчивость при падении отдельных узлов.</p>
+
+            <div class="card">
+                <h3><span class="emoji-icon">🔀</span> Авто | Умный (Сплит-туннелирование)</h3>
+                <span class="label">Архитектура</span>
+                <p>Использует встроенные правила маршрутизации (Geo-IP и списки доменов). Клиент на лету анализирует запрос: если вы обращаетесь к серверам внутри РФ (банки, маркетплейсы, Госуслуги), трафик идет напрямую от вашего провайдера (Direct). Запросы к заблокированным ресурсам заворачиваются в зашифрованный туннель (Proxy).</p>
+                
+                <span class="label">Преимущества</span>
+                <p>Отсутствие задержек при работе с локальными сервисами, экономия заряда батареи и исключение блокировок со стороны банковских систем безопасности (которые часто банят зарубежные IP-адреса).</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="emoji-icon">🌐</span> Авто | Полный (Глобальный Proxy)</h3>
+                <span class="label">Архитектура</span>
+                <p>Абсолютно весь TCP и UDP трафик устройства принудительно перенаправляется через зарубежный сервер. Правила локальной маршрутизации игнорируются.</p>
+                
+                <span class="label">Зачем это нужно</span>
+                <p>Сетевой стек операционной системы iOS (iPhone) иногда некорректно обрабатывает правила сплит-туннелирования для фоновых процессов, из-за чего мессенджеры (в частности, медиа в WhatsApp) не могут установить стабильное соединение. "Полный" режим устраняет конфликты DNS-запросов и решает эту проблему.</p>
+            </div>
+
+            <div class="warning-box">
+                <p style="margin: 0;">Важно: Авто-режимы по умолчанию используют Базовый TCP-транспорт. Если оборудование провайдера (ТСПУ) начнет применять агрессивные эвристические фильтры к TCP-трафику, балансировщик может перестать функционировать. В этом случае требуется ручной выбор протокола обфускации.</p>
+            </div>
+
+            <h2>Протоколы обхода DPI (Ручной выбор) <span class="emoji-icon">⚡️</span></h2>
+            <p>Под каждой локацией доступно 4 варианта транспорта. Они сгруппированы по уровню сложности и сценарию применения:</p>
+
+            <div class="card">
+                <h3>1️⃣ Базовый (Стандартный TLS)</h3>
+                <span class="label">Технология</span>
+                <p>Классическое зашифрованное соединение, маскирующее трафик под стандартный HTTPS-запрос (веб-серфинг). Использует подмену SNI (Server Name Indication).</p>
+                <span class="label">Применение</span>
+                <p>Универсальный протокол с минимальным оверхедом (дополнительной нагрузкой на процессор). Если провайдер не применяет активный DPI, этот протокол обеспечит наилучший баланс скорости и энергоэффективности.</p>
+            </div>
+
+            <div class="card">
+                <h3>2️⃣ gRPC (Мультиплексирование)</h3>
+                <span class="label">Технология</span>
+                <p>Транспортный механизм от Google, который позволяет передавать множество потоков данных через одно длительное TCP-соединение.</p>
+                <span class="label">Применение (Must-have для iOS)</span>
+                <p>Отлично маскируется под легитимный фоновый трафик мобильных приложений (например, под сервисы Apple Push Notification). Идеально поддерживает "keep-alive" состояние. Если у вас зависают звонки или уведомления приходят только после открытия приложения — gRPC решит эту проблему.</p>
+            </div>
+
+            <div class="card">
+                <h3>3️⃣ xHTTP (Адаптивная обфускация)</h3>
+                <span class="label">Технология</span>
+                <p>Передовой транспорт (построен на базе XTLS-Reality / динамического чанкинга). Он непрерывно дробит пакеты данных на фрагменты случайного размера и имитирует TLS-отпечатки (fingerprints) популярных браузеров.</p>
+                <span class="label">Применение</span>
+                <p>Абсолютная "невидимость" для анализаторов трафика. Система провайдера не может собрать фрагменты воедино и идентифицировать VPN-подключение. Это ваш основной инструмент при жестком "шейпинге" (замедлении) или блокировке нестандартных протоколов со стороны мобильных операторов.</p>
+            </div>
+
+            <div class="card">
+                <h3>4️⃣ HS2 (Hysteria 2 - QUIC/UDP)</h3>
+                <span class="label">Технология</span>
+                <p>Протокол, работающий поверх UDP (в отличие от предыдущих TCP-вариантов). Использует агрессивные алгоритмы контроля перегрузки, выжимая максимум из вашего канала.</p>
+                <span class="label">Применение</span>
+                <p>Создан для сетей с высокими потерями пакетов и плохим пингом. Обеспечивает мгновенный отклик и невероятную скорость потоковой передачи (4K видео на YouTube). Однако, многие мобильные операторы "режут" или полностью блокируют UDP-трафик (будет отображаться "н/д"). Лучше всего раскрывается при использовании домашнего Wi-Fi.</p>
+            </div>
+
+            <h2 style="margin-top: 40px;">Экстренный протокол: Белые списки <span class="emoji-icon">🛡️</span></h2>
+            <div class="warning-box shield">
+                <p style="margin: 0;"><b>Сценарий применения:</b> Режим "Чебурнета" (White-listing) или тотальная фильтрация, когда провайдер переходит от блокировки "плохих" сайтов к блокировке абсолютно всех IP-адресов по умолчанию, оставляя доступ только к узкому перечню одобренных государственных ресурсов.</p>
+            </div>
+            
+            <div class="card">
+                <span class="label">Как это работает на техническом уровне</span>
+                <p>В этом режиме мы применяем технику "Domain Fronting" и сложную подмену хостов. Ваш VPN-клиент инициирует соединение с доменом, который официально находится в "белом списке" провайдера (например, сервера Госуслуг, ВК или Яндекса). Оборудование провайдера видит легитимный запрос к разрешенному ресурсу и пропускает трафик. Однако внутри этого зашифрованного пакета спрятан запрос к нашему прокси-серверу, который уже маршрутизирует вас в свободный интернет.</p>
+                
+                <span class="label">Ограничения</span>
+                <p>Поскольку трафик "протискивается" через специфические узкоспециализированные маршруты, скорость в этом режиме может быть ограничена, а пинг — повышен. Используйте эти конфигурации исключительно в моменты критических инфраструктурных сбоев или максимального уровня цензуры, когда ни gRPC, ни xHTTP больше не проходят через DPI.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
