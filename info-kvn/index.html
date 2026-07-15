@@ -38,28 +38,10 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 10px;
-            margin-top: 10px;
-        }
-
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            object-position: center;
-        }
-
         h1 {
             font-size: 34px;
             font-weight: 800;
-            margin: 0;
+            margin: 0 0 5px 0;
             letter-spacing: 0;
         }
 
@@ -197,6 +179,22 @@
             position: relative;
         }
 
+        .warning-box.apple {
+            border-color: #007aff;
+            margin-top: 10px;
+        }
+        .warning-box.apple h3 {
+            color: #007aff;
+            margin-top: 0;
+        }
+        .warning-box.apple::before {
+            content: "🍏 ДЛЯ iPHONE";
+            background: var(--bg-color);
+            color: #007aff;
+            border-left: 2px solid #007aff;
+            border-right: 2px solid #007aff;
+        }
+
         .warning-box.shield::before {
             content: "🛡️ ЭКСТРЕННО";
         }
@@ -262,10 +260,7 @@
 
     <div class="container">
         <header>
-            <div class="logo-container">
-                <img src="../XM.jpg" alt="ХаМа Logo" class="logo-img">
-                <h1>ХаМа</h1>
-            </div>
+            <h1>ХаМа</h1>
             <p class="subtitle">Умные режимы и новые протоколы</p>
             <a href="https://khakiev.ru" class="home-btn">← Перейти на khakiev.ru</a>
         </header>
@@ -277,7 +272,20 @@
 
         <!-- ПРОСТАЯ ВЕРСИЯ -->
         <div id="simple" class="content-section active">
-            <p>Мы обновили систему! Теперь она сама ищет быстрые сервера, чтобы интернет не тормозил. Вот что вам нужно знать, чтобы всё работало идеально.</p>
+            
+            <div class="warning-box apple">
+                <h3>Пропали обновления Happ?</h3>
+                <p>Если в вашем App Store стоит регион «Россия», приложение <b>Happ</b> не будет получать обновления, так как его удалили из российского магазина. Без обновлений новые крутые функции просто не будут у вас работать.</p>
+                <p><b>Как решить проблему раз и навсегда:</b></p>
+                <ol style="padding-left: 20px; margin-bottom: 0;">
+                    <li>Зайдите в настройки Apple ID (в App Store) и поменяйте страну на <b>Соединенные Штаты</b>.</li>
+                    <li>Удалите старый Happ со своего телефона.</li>
+                    <li>Скачайте новую версию Happ заново из американского App Store.</li>
+                </ol>
+                <p style="margin-top: 10px; margin-bottom: 0;"><i>Готово! Теперь свежие обновления будут приходить автоматически, как обычно.</i></p>
+            </div>
+
+            <p style="margin-top: 25px;">Мы обновили систему! Теперь она сама ищет быстрые сервера, чтобы интернет не тормозил. Вот что вам нужно знать, чтобы всё работало идеально.</p>
             
             <h2>Что нажимать на каждый день?</h2>
             
@@ -328,7 +336,22 @@
 
         <!-- ПОДРОБНАЯ ВЕРСИЯ -->
         <div id="detailed" class="content-section">
-            <p>Система претерпела глубокую модернизацию. Мы интегрировали автоматические балансировщики нагрузки (Load Balancers) и развернули новейшие транспортные протоколы для обхода систем глубокого анализа трафика (DPI). Ниже представлено подробное техническое описание режимов.</p>
+            
+            <div class="card" style="border-left: 4px solid #007aff;">
+                <h3 style="margin-top: 0; color: #007aff;"><span class="emoji-icon">🍏</span> Обновление клиента Happ (iOS)</h3>
+                <span class="label">Суть проблемы</span>
+                <p>В связи с удалением клиента Happ из российского сегмента App Store, механизм доставки обновлений (OTA) для учетных записей РФ полностью заблокирован. Использование устаревших версий (outdated builds) приводит к несовместимости с новыми протоколами балансировщика.</p>
+                
+                <span class="label">Процедура восстановления апдейтов</span>
+                <p>Для возобновления поддержки необходимо перепривязать лицензию приложения к другому региону:</p>
+                <ol style="padding-left: 20px; margin-bottom: 0; font-size: 15px;">
+                    <li>В настройках Apple ID (Медиаматериалы и покупки -> Посмотреть) измените регион учетной записи на <b>Соединенные Штаты</b>.</li>
+                    <li>Выполните "чистую" установку: удалите текущую версию Happ с устройства и загрузите актуальный релиз из американского App Store.</li>
+                    <li>Дальнейшая доставка патчей безопасности и минорных апдейтов будет происходить в штатном режиме через механизмы Apple.</li>
+                </ol>
+            </div>
+
+            <p style="margin-top: 25px;">Система претерпела глубокую модернизацию. Мы интегрировали автоматические балансировщики нагрузки (Load Balancers) и развернули новейшие транспортные протоколы для обхода систем глубокого анализа трафика (DPI). Ниже представлено подробное техническое описание режимов.</p>
             
             <h2>Умные Авто-режимы <span class="emoji-icon">🤖</span></h2>
             <p>Эти режимы используют скрипты для непрерывного мониторинга сети (Health Checks). Клиент оценивает пинг до всех доступных нод и автоматически перенаправляет ваш трафик на наименее загруженный сервер, обеспечивая отказоустойчивость при падении отдельных узлов.</p>
