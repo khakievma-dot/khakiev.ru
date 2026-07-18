@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сеть XaMa — Информационный портал</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #333333;
+            --incy-color: #bad80a;
+            --apple-color: #007aff;
+            --border-color: #dddddd;
+            --bg-secondary: #f9f9f9;
+            --light-gray: #888888;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f7f9fc;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background-color: var(--bg-color);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--bg-secondary);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 0 5px 0;
+            letter-spacing: -0.5px;
+        }
+
+        p.subtitle {
+            color: var(--light-gray);
+            font-size: 15px;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Навигация (Вкладки) */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+            background-color: var(--bg-secondary);
+            padding: 6px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1 1 calc(50% - 8px);
+            padding: 10px;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        @media (min-width: 480px) {
+            .tab-btn { flex: 1; }
+        }
+
+        .tab-btn.active {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        /* Контент */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--text-color);
+            padding-left: 10px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p { font-size: 15px; margin-top: 0; margin-bottom: 12px; }
+
+        /* Карточки и блоки */
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+
+        .card.highlight-incy {
+            border-left: 5px solid var(--incy-color);
+            background-color: #fafafa;
+        }
+
+        .label {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+            margin-top: 15px;
+        }
+        .card .label:first-of-type { margin-top: 0; }
+
+        .warning-box {
+            background-color: #fff;
+            border: 2px solid var(--text-color);
+            padding: 20px 15px 15px 15px;
+            border-radius: 10px;
+            margin: 25px 0 15px 0;
+            position: relative;
+        }
+        
+        .warning-box::before {
+            content: "⚠️ ВАЖНО";
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: var(--bg-color);
+            padding: 0 10px;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .warning-box.apple {
+            border-color: var(--apple-color);
+        }
+        .warning-box.apple h3 { color: var(--apple-color); }
+        .warning-box.apple::before {
+            content: "🍏 ДЛЯ iPHONE";
+            color: var(--apple-color);
+            border-left: 2px solid var(--apple-color);
+            border-right: 2px solid var(--apple-color);
+        }
+
+        .warning-box.shield::before { content: "🛡️ ЭКСТРЕННО"; }
+
+        /* Кнопки */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: opacity 0.2s, background-color 0.2s;
+            text-align: center;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn-black { background-color: var(--text-color); color: var(--bg-color); }
+        .btn-incy { background-color: var(--incy-color); color: var(--text-color); }
+        .btn-outline { 
+            background-color: transparent; 
+            color: var(--text-color); 
+            border: 2px solid var(--border-color); 
+            padding: 12px 20px;
+        }
+        .btn-outline:hover {
+            border-color: var(--text-color);
+            background-color: var(--bg-secondary);
+        }
+
+        ul, ol { padding-left: 20px; font-size: 15px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--light-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--bg-secondary);
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Сеть XaMa</h1>
+            <p class="subtitle">Информационный портал</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('main')">Главное</button>
+            <button class="tab-btn" onclick="switchTab('auto')">Авто-режимы</button>
+            <button class="tab-btn" onclick="switchTab('manual')">Протоколы</button>
+            <button class="tab-btn" onclick="switchTab('troubleshoot')">Решение проблем</button>
+        </div>
+
+        <!-- ВКЛАДКА 1: ГЛАВНОЕ -->
+        <div id="main" class="content-section active">
+            <h2>Стабильность и Мониторинг</h2>
+            <div class="card">
+                <p>Мы непрерывно следим за состоянием сети: наш специальный бот 24/7 мониторит все серверы и мгновенно оповещает команду о любых неполадках.</p>
+                <p>Если вы используете режим <strong>«Авто»</strong>, сеть XaMa самостоятельно переключит вас на другой доступный сервер при сбое — вы даже не заметите перебоев в работе интернета. Умная система сама находит оптимальные узлы для обеспечения бесперебойного доступа.</p>
+                <p>Единственное, что от вас требуется — <strong>периодически обновлять подписку</strong> (кликнув на иконку в виде круга из двух стрелочек), если она не обновилась автоматически.</p>
+            </div>
+
+            <h2>Скачать приложения</h2>
+            <p>Наши настройки сети отлично работают в различных клиентах. Выберите подходящий для вашего устройства.</p>
+            
+            <div class="card">
+                <h3>📱 Для мобильных устройств</h3>
+                
+                <span class="label">Клиент Happ (Основной)</span>
+                <div class="btn-group">
+                    <a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215" class="btn btn-black" target="_blank">Скачать Happ для iOS (Global)</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.happproxy" class="btn btn-black" target="_blank">Скачать Happ для Android</a>
+                </div>
+
+                <span class="label">Клиент Incy (Идеально для РФ)</span>
+                <div class="btn-group">
+                    <a href="https://apps.apple.com/us/app/incy/id6756943388" class="btn btn-incy" target="_blank">Скачать Incy для iOS</a>
+                    <a href="https://play.google.com/store/apps/details?id=llc.itdev.incy&hl=ru" class="btn btn-incy" target="_blank">Скачать Incy для Android</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>💻 Для компьютеров и ТВ</h3>
+                
+                <span class="label">Официальный клиент XaMa</span>
+                <div class="btn-group">
+                    <a href="https://github.com/khakievma-dot/khakiev-kvn/releases/download/3.0.5/Install_Khakiev_KVN_3.0.5.exe" class="btn btn-black">Скачать XaMa Client (Windows)</a>
+                </div>
+
+                <span class="label">Альтернативные варианты</span>
+                <div class="btn-group">
+                    <a href="https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.x64.exe" class="btn btn-outline" target="_blank">Скачать Happ (Windows)</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.happproxy" class="btn btn-outline" target="_blank">Скачать Happ (Android TV)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 2: АВТО-РЕЖИМЫ -->
+        <div id="auto" class="content-section">
+            <p>Система претерпела глубокую модернизацию. Скрипты оценивают пинг и автоматически направляют трафик на наименее загруженный сервер.</p>
+
+            <div class="warning-box">
+                <p style="margin: 0;"><strong>Обратите внимание:</strong> использовать функцию «Авто» не рекомендуется тем, кто часто работает с нейросетями (ИИ), так как частая смена IP-адресов может привести к риску блокировки аккаунта.</p>
+            </div>
+
+            <div class="card">
+                <h3>🔀 Авто | Умный</h3>
+                <span class="label">Рекомендуется в 90% случаев</span>
+                <p>Использует встроенные правила маршрутизации. Клиент на лету анализирует запрос: заблокированные ресурсы (Instagram, YouTube) заворачиваются в защищенный туннель, а российские сервисы (банки, Госуслуги) работают напрямую от вашего провайдера. Включили один раз и забыли.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌐 Авто | Полный</h3>
+                <span class="label">Глобальный Proxy</span>
+                <p>В этом режиме абсолютно все приложения на телефоне работают через зарубежный сервер. Отлично помогает, если не грузятся картинки и кружочки в мессенджерах (решает конфликты DNS в iOS). Однако, из-за этого могут временно не открываться российские банки.</p>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 3: РУЧНЫЕ ПРОТОКОЛЫ -->
+        <div id="manual" class="content-section">
+            <p>Если оборудование провайдера блокирует Авто-режимы, выберите любую конкретную страну вручную. Под каждой локацией доступно 4 варианта транспорта:</p>
+
+            <div class="card">
+                <h3>1️⃣ Базовый (Без приписок)</h3>
+                <p><strong>Золотой стандарт.</strong> Классическое зашифрованное соединение, маскирующее трафик под обычный веб-серфинг. Выбирайте его первым, если интернет работает стабильно.</p>
+            </div>
+
+            <div class="card">
+                <h3>2️⃣ Приписка "gRPC"</h3>
+                <p><strong>Скрытный режим (Идеально для iOS).</strong> Позволяет передавать данные через одно длительное соединение. Если уведомления приходят с опозданием или не проходят звонки — этот протокол решит проблему.</p>
+            </div>
+
+            <div class="card">
+                <h3>3️⃣ Приписка "xHTTP"</h3>
+                <p><strong>Бронебойный вариант.</strong> Передовой транспорт с адаптивной обфускацией. Абсолютная "невидимость" для систем анализа трафика (DPI). Включайте при жестких блокировках мобильных операторов.</p>
+            </div>
+
+            <div class="card">
+                <h3>4️⃣ Приписка "HS2"</h3>
+                <p><strong>Для видео и Android.</strong> Самый быстрый протокол поверх UDP. Идеален для 4K видео на YouTube, но часто блокируется на мобильном интернете. Лучше использовать на домашнем Wi-Fi.</p>
+            </div>
+
+            <div class="warning-box shield">
+                <h3>Белые списки (Domain Fronting)</h3>
+                <p style="margin-bottom: 0;"><strong>Крайняя мера:</strong> Режим маскирует трафик под разрешенные государством сайты (Госуслуги, ВК). Используйте эту кнопку <strong>только</strong> если интернет заблокирован "наглухо" и ни один из других протоколов (gRPC, xHTTP) не подключается.</p>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 4: РЕШЕНИЕ ПРОБЛЕМ -->
+        <div id="troubleshoot" class="content-section">
+            
+            <div class="warning-box apple" style="margin-top: 10px;">
+                <h3>Зависает WhatsApp?</h3>
+                <p>Если сообщения не отправляются, а медиа не грузятся (при работающих Telegram и YouTube) — <strong>проблема не в сети XaMa</strong>. Это конфликт мессенджера WhatsApp с системой iOS и алгоритмами некоторых клиентов.</p>
+                <p><strong>💡 Решение:</strong> Мы настоятельно рекомендуем просто попробовать клиент <strong>Incy</strong> (ссылка в разделе «Главное»). Он отлично оптимизирован под iOS и решает проблему с зависаниями без дополнительных настроек.</p>
+                <p style="font-size: 14px; color: #555; margin-bottom: 10px;"><i>Альтернатива для Happ: переключитесь на специальные протоколы:</i></p>
+                <ul style="margin-bottom: 0;">
+                    <li><b>Тестовый I</b></li>
+                    <li><b>Тестовый II</b></li>
+                </ul>
+            </div>
+
+            <div class="warning-box apple">
+                <h3>Пропали обновления Happ?</h3>
+                <p>В связи с удалением клиента Happ из российского App Store, приложение перестало получать критически важные обновления протоколов для учетных записей РФ.</p>
+                <p><strong>💡 Как решить проблему:</strong></p>
+                <ol style="margin-bottom: 0;">
+                    <li><strong>Вариант 1 (Самый простой):</strong> Скачайте <strong>Incy</strong>. Это приложение официально доступно в российском App Store, скачивается и автоматически обновляется без каких-либо сложностей.</li>
+                    <li><strong>Вариант 2 (Для пользователей Happ):</strong> В настройках Apple ID поменяйте регион на <b>Соединенные Штаты</b>, полностью удалите старый Happ со своего телефона и скачайте новую версию из американского магазина.</li>
+                </ol>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Команда XaMa
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
