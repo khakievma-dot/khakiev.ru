@@ -379,6 +379,11 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
 .rep-in{padding:32px 32px 30px}
 .rep-title{font-family:'Unbounded',sans-serif;font-weight:600;font-size:1.4rem;margin-bottom:10px}
 .rep-intro{color:var(--muted);font-size:.96rem;line-height:1.55;margin-bottom:22px}
+.join-link{display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:.25s var(--ease)}
+.join-link:hover{color:#fff;border-color:#fff}
+.rep-in select.jselect{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 14px;color:var(--text);font-family:'Manrope',sans-serif;font-size:.96rem;margin-bottom:16px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 20px,calc(100% - 14px) 20px;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.rep-in select.jselect:focus{outline:none;border-color:var(--line-2)}
+.rep-in select.jselect option{background:#0b0c0e;color:var(--text)}
 
 @media(max-width:980px){
   .preview-grid{grid-template-columns:1fr}
@@ -505,9 +510,9 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
       <div class="about-text reveal d2">
         <span class="eyebrow">О студии</span>
         <h2 class="chrome" style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.06;margin:16px 0 24px;letter-spacing:-.01em">Команда, которая делает сайты для результата</h2>
-        <p>Меня зовут <strong>Хакиев Магомет</strong>, и я профессионально занимаюсь веб-разработкой уже <span class="hl">более 8 лет</span>. За это время я прошёл путь от первых страниц до сложных веб-сервисов и собрал <strong>собственную команду</strong> дизайнеров, разработчиков и тестировщиков.</p>
-        <p>Небольшие проекты я веду лично — быстро и качественно. Для крупных задач подключаю команду: дизайнер, фронтенд, бэкенд и QA. Так мы закрываем проекты <span class="hl">любой сложности</span> без потери в качестве и сроках.</p>
-        <p>Я не просто пишу код — я отвечаю за результат. Понятная смета, фиксированные сроки и связь в одном мессенджере. Без воды и навязанных услуг.</p>
+        <p>Веб-разработкой занимаюсь уже <span class="hl">больше 8 лет</span>. За это время — <span class="hl">120+ проектов</span>: от одностраничников до интернет-магазинов и веб-сервисов. Начинал, конечно, один — сейчас со мной команда. А если нужно совсем быстро, подключаем ещё и ИИ-помощников: они не спят, не устают и выходных не просят.</p>
+        <p>Небольшие проекты, если позволяет загрузка, веду лично — быстро и качественно. Для крупных задач подключаю команду: дизайнер, фронтенд, бэкенд и QA. Так закрываем проекты <span class="hl">любой сложности</span>, не проседая ни в качестве, ни в сроках. На срочные можем добавить и разработчиков, с которыми сотрудничаем, — по вашему желанию, конечно.</p>
+        <p>Работаю без сюрпризов: сначала смета и сроки, потом код. Держу связь в одном мессенджере и не пропадаю. Что согласовали — то и сдаю. <a class="join-link" id="joinAbout" href="#">Сами разработчик или дизайнер? В команду →</a></p>
         <div class="chips">
           <div class="chip">HTML / CSS</div><div class="chip">JavaScript</div><div class="chip">React</div>
           <div class="chip">Node.js</div><div class="chip">UI/UX дизайн</div><div class="chip">WordPress</div>
@@ -758,10 +763,44 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
       <a href="https://wa.me/79300842922" target="_blank" rel="noopener">WhatsApp</a>
       <a href="mailto:khakiev.m.a@list.ru">Email</a>
       <a href="tel:+79300842922">+7 930 084-29-22</a>
+      <a href="#" id="joinFoot">В команду</a>
       <a href="#top">Наверх ↑</a>
     </div>
   </div>
 </footer>
+
+<!-- JOIN TEAM MODAL -->
+<div class="modal" id="joinModal">
+  <div class="modal-bg" data-close></div>
+  <div class="rep-card">
+    <button class="modal-close" data-close>✕</button>
+    <div class="rep-in">
+      <div class="rep-title">Работать вместе</div>
+      <p class="rep-intro">Иногда проектов больше, чем рук. Если вы дизайнер, разработчик или тестировщик и готовы брать задачи на подхват в загруженные дни — оставьте заявку. Напишу, когда будет поток.</p>
+      <form id="joinForm">
+        <label for="jName">Как вас зовут</label>
+        <input type="text" id="jName" name="Имя" placeholder="Имя" required>
+        <label for="jRole">Направление</label>
+        <select id="jRole" name="Направление" class="jselect">
+          <option>Фронтенд</option>
+          <option>Бэкенд</option>
+          <option>Дизайн</option>
+          <option>QA / тестирование</option>
+          <option>Другое</option>
+        </select>
+        <label for="jLinks">Ссылки на работы или GitHub</label>
+        <input type="text" id="jLinks" name="Ссылки" placeholder="Портфолио, GitHub, резюме">
+        <label for="jContact">Контакт для связи</label>
+        <input type="text" id="jContact" name="Контакт" placeholder="Почта или @username" required>
+        <label for="jMsg">Пара слов — по желанию</label>
+        <textarea id="jMsg" name="Опыт" rows="2" placeholder="Кратко об опыте и стеке"></textarea>
+        <button type="submit" class="btn btn-accent">Отправить заявку <span class="arr">→</span></button>
+        <div class="form-note">// отвечу, когда появятся задачи</div>
+      </form>
+      <div class="form-ok" id="joinOk"><div class="big">Спасибо!</div><p style="color:var(--muted)">Сохранил контакт — напишу, когда появятся задачи.</p></div>
+    </div>
+  </div>
+</div>
 
 <!-- REPORT SERVICE MODAL -->
 <div class="modal" id="repModal">
@@ -799,7 +838,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
      false = приём на паузе (лист ожидания + кнопка «Это срочно»)
    Поменяйте одно слово ниже и сохраните файл — сайт перестроится сам.
    ============================================================ */
-const ПРИЁМ_ЗАКАЗОВ = false;
+const ПРИЁМ_ЗАКАЗОВ = true;
 
 /* режимы формы контактов: normal / waitlist / urgent */
 function setContactMode(mode){
@@ -951,6 +990,28 @@ if(linksGrid){
       moreBtn.addEventListener('click',function(){linksGrid.classList.add('expanded');moreBtn.style.display='none';});
     }
   }
+}
+
+/* ====== ЗАЯВКА В КОМАНДУ / СОТРУДНИЧЕСТВО ====== */
+['joinFoot','joinAbout'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)el.addEventListener('click',function(e){e.preventDefault();showModal('joinModal');});
+});
+var joinForm=document.getElementById('joinForm');
+if(joinForm){
+  joinForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=this.querySelector('button[type=submit]'),old=btn.innerHTML;btn.innerHTML='Отправляю...';
+    var fd=new FormData(this);fd.append('_subject','В команду — khakiev.ru');
+    fetch('https://formsubmit.co/ajax/khakiev.m.a@list.ru',{method:'POST',headers:{'Accept':'application/json'},body:fd})
+      .then(function(r){return r.json();})
+      .then(function(){joinForm.style.display='none';document.getElementById('joinOk').classList.add('show');toast('Заявка в команду отправлена ✓');})
+      .catch(function(){
+        var n=fd.get('Имя'),r=fd.get('Направление'),l=fd.get('Ссылки'),c=fd.get('Контакт');
+        window.location.href='mailto:khakiev.m.a@list.ru?subject='+encodeURIComponent('В команду — khakiev.ru')+'&body='+encodeURIComponent('Имя: '+n+'\nНаправление: '+r+'\nСсылки: '+l+'\nКонтакт: '+c);
+      })
+      .finally(function(){btn.innerHTML=old;});
+  });
 }
 
 /* ====== ЖАЛОБА НА СЕРВИС ====== */
