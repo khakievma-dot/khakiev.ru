@@ -1063,6 +1063,29 @@ window.addEventListener('scroll',scrollSpy);scrollSpy();
 /* ====== YEAR ====== */
 document.getElementById('year').textContent=new Date().getFullYear();
 
+/* ====== SCROLL TO TOP (шапка фиксированная — якорь #top сам по себе не работает) ====== */
+document.querySelectorAll('a[href="#top"]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+});
+
+/* ====== EMAIL: копируем в буфер + тост (mailto молчит без почтового клиента) ====== */
+document.querySelectorAll('a[href^="mailto:"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const email=a.getAttribute('href').replace('mailto:','').split('?')[0];
+    const done=()=>toast('Email скопирован ✓');
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(email).then(done).catch(()=>{
+        window.location.href='mailto:'+email;
+      });
+    }else{
+      const t=document.createElement('textarea');t.value=email;t.style.position='fixed';t.style.opacity='0';
+      document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(err){window.location.href='mailto:'+email;}
+      document.body.removeChild(t);
+    }
+  });
+});
+
 /* ====== NAV / BURGER / PROGRESS / CURSOR ====== */
 const header=document.querySelector('header');
 const cursor=document.getElementById('cursor');
