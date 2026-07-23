@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хакиев Магомет — Веб-разработка под ключ · Студия</title>
+<meta name="description" content="Хакиев Магомет — веб-разработка под ключ. Команда разработчиков и дизайнеров. Сайты, интернет-магазины и веб-приложения. Опыт 8 лет, 120+ проектов.">
+<meta name="author" content="Хакиев Магомет">
+<meta property="og:title" content="Хакиев Магомет — Веб-разработка под ключ">
+<meta property="og:description" content="Команда, которая делает быстрые и продающие сайты. Опыт 8 лет, 120+ проектов.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://khakiev.ru/">
+<meta property="og:site_name" content="Хакиев Магомет">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://khakiev.ru/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="khakiev.ru — разработка сайтов, ботов и приложений">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Хакиев Магомет — Веб-разработка под ключ">
+<meta name="twitter:description" content="Команда, которая делает быстрые и продающие сайты. Опыт 8 лет, 120+ проектов.">
+<meta name="twitter:image" content="https://khakiev.ru/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0c0e'/%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='none' stroke='%23ffffff' stroke-opacity='.22'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' text-anchor='middle' fill='%23eef1f6'%3E%D0%A5%D0%9C%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#060607;
+  --bg-2:#0b0c0e;
+  --panel:rgba(255,255,255,.03);
+  --panel-2:rgba(255,255,255,.055);
+  --text:#f4f5f7;
+  --muted:#9a9ca3;
+  --muted-2:#54565d;
+  --line:rgba(255,255,255,.09);
+  --line-2:rgba(255,255,255,.2);
+  --accent:#cdd3dd;
+  --accent-2:#8f939c;
+  --accent-3:#ffffff;
+  --radius:18px;
+  --maxw:1360px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:default}
+::selection{background:#fff;color:#000}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit}
+
+/* metallic text utility */
+.chrome{background:linear-gradient(180deg,#ffffff 22%,#9a9da5 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* scrollbar */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#33353b;border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:#4c4e56}
+
+/* progress bar */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,#6d7079,#eef1f6,#8f939c);z-index:200;box-shadow:0 0 12px rgba(230,235,245,.5)}
+
+/* cursor glow */
+#cursor{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(150,170,205,.10),transparent 60%);transition:opacity .4s;mix-blend-mode:screen}
+
+/* atmosphere */
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:66px 66px;mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 72%)}
+.aura{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(48vw 38vw at 18% 2%,rgba(120,140,180,.10),transparent 60%),
+  radial-gradient(46vw 36vw at 86% 12%,rgba(180,185,205,.06),transparent 60%)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:3}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,#fff,transparent)}
+.section-pad{padding:120px 0}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:90;transition:.4s var(--ease);border-bottom:1px solid transparent}
+header.scrolled{background:rgba(6,6,7,.65);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{font-family:'Unbounded',sans-serif;font-weight:600;font-size:1.04rem;display:flex;align-items:center;gap:12px}
+.logo .mark{width:38px;height:38px;border:1px solid var(--line-2);border-radius:11px;display:grid;place-items:center;font-size:.82rem;font-weight:700;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.02));box-shadow:inset 0 1px 0 rgba(255,255,255,.15)}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-size:.92rem;color:var(--muted);position:relative;transition:.25s var(--ease);font-weight:500}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:#fff;transition:width .3s var(--ease)}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.icon-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.02);color:var(--muted);display:grid;place-items:center;cursor:pointer;transition:.25s var(--ease);font-size:1.05rem}
+.icon-btn:hover{border-color:var(--line-2);color:var(--text);transform:translateY(-2px)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;padding:13px 22px;border-radius:12px;transition:.3s var(--ease);cursor:pointer;border:1px solid var(--line-2);background:rgba(255,255,255,.03);color:var(--text)}
+.btn .arr{transition:transform .3s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn-accent{background:linear-gradient(145deg,#ffffff,#c9ccd3);color:#0a0a0c;border:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(220,228,245,.16)}
+.nav-links a.btn-accent,.nav-links a.btn-accent:hover{color:#0a0a0c}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--text);transition:.3s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:112px 0 72px;overflow:hidden}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.85}
+.hero .wrap{z-index:3}
+.hero-glow{position:absolute;top:-18%;right:-8%;width:56vw;height:56vw;z-index:1;background:radial-gradient(circle,rgba(150,165,200,.14),transparent 60%);filter:blur(30px);pointer-events:none}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 16px;background:rgba(6,6,7,.5);backdrop-filter:blur(6px)}
+.status .dot{width:8px;height:8px;border-radius:50%;background:#e3e7ee;box-shadow:0 0 10px rgba(227,231,238,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(227,231,238,.5)}70%{box-shadow:0 0 0 12px rgba(227,231,238,0)}100%{box-shadow:0 0 0 0 rgba(227,231,238,0)}}
+.hero h1{font-family:'Unbounded',sans-serif;font-weight:900;line-height:1.08;letter-spacing:-.02em;font-size:clamp(3rem,9vw,7.6rem);margin:26px 0 6px;padding-top:.08em;text-transform:uppercase;background:linear-gradient(180deg,#ffffff 32%,#8d909a 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1 .accent{background:linear-gradient(145deg,#eef1f6,#b7bcc6 42%,#7d818b);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 22px rgba(200,212,235,.28))}
+.hero .lead{font-size:clamp(1.15rem,2.4vw,1.65rem);max-width:680px;margin-top:18px;font-weight:400;line-height:1.42;color:#cdd0d6}
+.hero .sub{color:var(--muted);max-width:560px;margin-top:18px}
+.hero-cta{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:74px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;backdrop-filter:blur(8px)}
+.stat .num{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.8rem,3.5vw,2.7rem);background:linear-gradient(180deg,#fff,#a7aab2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat .lbl{color:var(--muted);font-size:.86rem;margin-top:4px}
+
+/* section heads */
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+.shead h2{font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:-.01em;font-size:clamp(2rem,5vw,3.4rem);line-height:1.04;margin-top:16px;background:linear-gradient(180deg,#fff,#9a9ca3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.shead p{color:var(--muted);max-width:430px}
+
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:48px;animation:scroll 30s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:'Unbounded',sans-serif;font-weight:500;font-size:1.5rem;color:var(--muted-2);display:inline-flex;align-items:center;gap:48px}
+.marquee-track span::after{content:"◈";color:var(--line-2);font-size:.9rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:60px;align-items:center}
+.portrait{aspect-ratio:4/5;border-radius:var(--radius);border:1px solid var(--line);background:radial-gradient(circle at 30% 20%,rgba(150,165,200,.18),transparent 55%),linear-gradient(160deg,#15171b,#0a0b0d);position:relative;overflow:hidden;display:grid;place-items:center;transform-style:preserve-3d}
+.portrait .initials{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(4rem,12vw,8rem);background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.02));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.portrait .ring{position:absolute;width:140%;height:140%;border:1px solid var(--line-2);border-radius:50%;animation:spin 22s linear infinite}
+.portrait .ring:nth-child(2){width:108%;height:108%;border-style:dashed;animation-duration:34s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.portrait .tag{position:absolute;left:18px;bottom:18px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);border:1px solid var(--line);padding:6px 12px;border-radius:999px;background:rgba(6,6,7,.6);backdrop-filter:blur(6px)}
+.about-text p{color:var(--muted);font-size:1.06rem;margin-bottom:18px}
+.about-text p strong{color:var(--text);font-weight:600}
+.about-text p .hl{color:#eef1f6;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:8px 15px;background:rgba(255,255,255,.02);transition:.25s var(--ease)}
+.chip:hover{border-color:var(--line-2);background:rgba(255,255,255,.06);transform:translateY(-2px)}
+
+/* generic tilt card */
+.tilt{transform-style:preserve-3d;transition:transform .15s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease);will-change:transform}
+.tilt .tilt-in{transform:translateZ(28px)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;background:var(--panel);position:relative;overflow:hidden;cursor:default}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);opacity:0;transition:.4s var(--ease)}
+.svc:hover{border-color:var(--line-2);background:var(--panel-2);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.svc:hover::before{opacity:1}
+.svc .ic{width:54px;height:54px;border-radius:14px;border:1px solid var(--line-2);display:grid;place-items:center;color:#eef1f6;margin-bottom:22px;font-size:1.5rem;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.02))}
+.svc h3{font-family:'Unbounded',sans-serif;font-weight:500;font-size:1.22rem;margin-bottom:12px}
+.svc p{color:var(--muted);font-size:.96rem}
+.svc .price{margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--text)}
+.svc .price span{color:var(--muted)}
+
+/* portfolio */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.work{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel);position:relative;cursor:pointer;transition:.3s var(--ease)}
+.work:hover{border-color:var(--line-2);box-shadow:0 24px 70px rgba(0,0,0,.5)}
+.work .thumb{aspect-ratio:16/10;position:relative;overflow:hidden;display:grid;place-items:center;border-bottom:1px solid var(--line)}
+.work .glyph{font-family:'Unbounded',sans-serif;font-weight:900;font-size:3.6rem;color:rgba(255,255,255,.09);transition:.5s var(--ease)}
+.work:hover .glyph{color:rgba(255,255,255,.2);transform:scale(1.1)}
+.work .openhint{position:absolute;top:16px;right:16px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#eef1f6;border:1px solid var(--line-2);padding:5px 11px;border-radius:999px;background:rgba(6,6,7,.6);opacity:0;transform:translateY(-6px);transition:.3s var(--ease)}
+.work:hover .openhint{opacity:1;transform:none}
+.t1{background:linear-gradient(150deg,#1b1e23,#0a0b0d)}
+.t2{background:linear-gradient(150deg,#191b20,#0a0b0d)}
+.t3{background:linear-gradient(150deg,#1d2026,#0a0b0d)}
+.t4{background:linear-gradient(150deg,#181a1f,#0a0b0d)}
+.t5{background:linear-gradient(150deg,#1f2229,#0a0b0d)}
+.t6{background:linear-gradient(150deg,#16181c,#0a0b0d)}
+.work .body{padding:26px 28px 30px}
+.work .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.work .type{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#c9cfd8}
+.work .year{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted-2)}
+.work h3{font-family:'Unbounded',sans-serif;font-weight:500;font-size:1.4rem;margin-bottom:10px}
+.work p{color:var(--muted);font-size:.96rem;margin-bottom:16px}
+.work .stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.work .stack span{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);border:1px solid var(--line);padding:4px 10px;border-radius:6px}
+.work .result{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--text);border-top:1px solid var(--line);padding-top:16px;font-family:'JetBrains Mono',monospace}
+.work .result b{color:#eef1f6;font-weight:700}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:32px 26px;transition:.35s var(--ease)}
+.step:hover{background:var(--panel-2);border-color:var(--line-2)}
+.step .n{font-family:'JetBrains Mono',monospace;color:#c9cfd8;font-size:.85rem;margin-bottom:18px}
+.step h3{font-family:'Unbounded',sans-serif;font-weight:500;font-size:1.16rem;margin-bottom:10px}
+.step p{color:var(--muted);font-size:.92rem}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;border:1px solid var(--line);border-radius:24px;background:var(--panel);overflow:hidden}
+.calc-left{padding:42px 40px}
+.calc-right{background:linear-gradient(160deg,#16181d,#0a0b0d);padding:42px 40px;border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.calc h3{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:22px 0 12px}
+.calc h3:first-child{margin-top:0}
+.opt-row{display:flex;flex-wrap:wrap;gap:10px}
+.opt{font-size:.92rem;border:1px solid var(--line);border-radius:11px;padding:11px 16px;cursor:pointer;transition:.2s var(--ease);user-select:none;color:var(--muted)}
+.opt:hover{border-color:var(--line-2);color:var(--text)}
+.opt.active{border-color:#fff;background:rgba(255,255,255,.1);color:var(--text)}
+.calc-right .small{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.calc-price{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.8rem);margin:10px 0;line-height:1.1;background:linear-gradient(180deg,#fff,#a7aab2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.calc-right p{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px;background:var(--panel);transition:.35s var(--ease);cursor:pointer;position:relative}
+.review:hover{border-color:var(--line-2);background:var(--panel-2);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.review .stars{color:#e6eaf1;letter-spacing:3px;margin-bottom:18px;font-size:.9rem}
+.review .quote{color:var(--text);font-size:1rem;margin-bottom:22px;font-weight:500;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.review .who{display:flex;align-items:center;gap:13px}
+.review .av{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-weight:700;color:#eef1f6;font-size:.95rem;background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.02))}
+.review .name{font-weight:600;font-size:.95rem}
+.review .role{color:var(--muted);font-size:.82rem}
+.review .more{position:absolute;bottom:18px;right:24px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#c9cfd8;opacity:0;transition:.3s}
+.review:hover .more{opacity:1}
+
+/* materials */
+.mat-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.mat{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel);transition:.3s var(--ease);display:flex;flex-direction:column}
+.mat:hover{border-color:var(--line-2);transform:translateY(-4px)}
+.mat .prev{height:150px;display:grid;place-items:center;background:linear-gradient(150deg,#16181d,#0a0b0d);position:relative;overflow:hidden}
+.mat .prev img,.mat .prev video{width:100%;height:100%;object-fit:cover}
+.mat .prev .ic{font-size:2.4rem;color:#c9cfd8}
+.mat .badge{position:absolute;top:10px;left:10px;font-family:'JetBrains Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:#dfe3ea;background:rgba(6,6,7,.7);border:1px solid var(--line-2);padding:4px 9px;border-radius:999px}
+.mat .mbody{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+.mat .mtitle{font-weight:600;font-size:1.02rem;margin-bottom:6px}
+.mat .mdesc{color:var(--muted);font-size:.86rem;margin-bottom:16px;flex:1}
+.mat .mfoot{display:flex;gap:8px}
+.dl{flex:1;text-align:center;font-size:.85rem;font-weight:600;padding:10px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--line-2);color:#eef1f6;transition:.25s var(--ease)}
+.dl:hover{background:#fff;color:#0a0a0c}
+.mat .del{width:40px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;transition:.2s;display:none}
+.mat .del:hover{border-color:#fff;color:#fff}
+body.admin-on .mat .del{display:block}
+.mat-empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px;border:1px dashed var(--line);border-radius:16px;font-size:.95rem}
+
+/* contact */
+.cta{border:1px solid var(--line);border-radius:28px;padding:62px 54px;overflow:hidden;position:relative;background:radial-gradient(circle at 82% 0%,rgba(150,165,200,.14),transparent 50%),linear-gradient(160deg,rgba(255,255,255,.02),rgba(10,11,13,0))}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+.cta h2{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.04;letter-spacing:-.01em;background:linear-gradient(180deg,#fff,#9a9ca3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cta .sub{color:var(--muted);margin-top:20px;font-size:1.05rem;max-width:420px}
+.contacts{margin-top:30px;display:flex;flex-direction:column;gap:2px}
+.contacts a{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);transition:.25s var(--ease);font-size:1.02rem}
+.contacts a:last-child{border-bottom:none}
+.contacts a:hover{color:#fff;padding-left:8px}
+.contacts a .k{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted-2);width:86px;text-transform:uppercase;letter-spacing:.08em}
+.vcard-btn{margin-top:22px}
+form{display:flex;flex-direction:column;gap:14px}
+form label{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:-6px}
+form input,form textarea{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:15px 17px;color:var(--text);font-family:'Manrope',sans-serif;font-size:.98rem;transition:.25s var(--ease);resize:vertical}
+form input:focus,form textarea:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.05)}
+form input::placeholder,form textarea::placeholder{color:var(--muted-2)}
+form button{margin-top:8px;justify-content:center}
+.form-note{font-size:.78rem;color:var(--muted-2);text-align:center;font-family:'JetBrains Mono',monospace}
+.form-ok{display:none;text-align:center;padding:40px 20px;border:1px solid var(--line-2);border-radius:16px;background:rgba(255,255,255,.04)}
+.form-ok.show{display:block}
+.form-ok .big{font-family:'Unbounded',sans-serif;font-size:1.4rem;margin-bottom:8px}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:12px;max-width:840px}
+.qa{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);transition:.3s}
+.qa.open{border-color:var(--line-2)}
+.q{padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:600;font-size:1.05rem}
+.q .pl{color:#c9cfd8;font-size:1.4rem;transition:.3s var(--ease);font-family:'JetBrains Mono',monospace}
+.qa.open .pl{transform:rotate(45deg)}
+.a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);color:var(--muted)}
+.a div{padding:0 26px 24px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot .copy{color:var(--muted);font-size:.88rem}
+.foot .socials{display:flex;gap:24px;flex-wrap:wrap}
+.foot .socials a{color:var(--muted);font-size:.88rem;font-family:'JetBrains Mono',monospace;transition:.25s var(--ease)}
+.foot .socials a:hover{color:#fff}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px}
+.modal.show{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(4,4,5,.82);backdrop-filter:blur(8px)}
+.modal-card{position:relative;z-index:2;max-width:760px;width:100%;max-height:88vh;overflow-y:auto;background:var(--bg-2);border:1px solid var(--line-2);border-radius:22px;padding:0;animation:pop .45s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:none}}
+.modal-hero{height:200px;display:grid;place-items:center;border-bottom:1px solid var(--line);position:relative}
+.modal-hero .glyph{font-family:'Unbounded',sans-serif;font-weight:900;font-size:5rem;color:rgba(255,255,255,.18)}
+.modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:rgba(6,6,7,.7);color:var(--text);cursor:pointer;font-size:1.2rem;z-index:5;transition:.25s}
+.modal-close:hover{background:#fff;color:#0a0a0c}
+.modal-body{padding:34px 40px 40px}
+.modal-body .type{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#c9cfd8}
+.modal-body h3{font-family:'Unbounded',sans-serif;font-weight:700;font-size:2rem;margin:8px 0 18px}
+.modal-section{margin-bottom:22px}
+.modal-section h4{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.modal-section p{color:var(--text);font-size:1rem}
+.modal-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.modal-gallery div{aspect-ratio:4/3;border-radius:10px;border:1px solid var(--line);background:linear-gradient(150deg,#1d2026,#0a0b0d);display:grid;place-items:center;color:rgba(255,255,255,.22);font-family:'Unbounded',sans-serif;font-weight:900;font-size:1.6rem}
+.modal-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.modal-stack span{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--muted);border:1px solid var(--line);padding:5px 11px;border-radius:7px}
+.modal-cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+
+/* admin */
+.admin-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.admin-field label{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.admin-field input,.admin-field select,.admin-field textarea{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:13px 15px;color:var(--text);font-family:inherit;font-size:.95rem}
+.admin-field input:focus,.admin-field select:focus,.admin-field textarea:focus{outline:none;border-color:#fff}
+.admin-note{font-size:.82rem;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:14px;line-height:1.5}
+.admin-tabs{display:flex;gap:8px;margin-bottom:24px}
+.admin-tab{flex:1;text-align:center;padding:11px;border:1px solid var(--line);border-radius:10px;cursor:pointer;color:var(--muted);font-size:.9rem;transition:.2s}
+.admin-tab.active{border-color:#fff;color:var(--text);background:rgba(255,255,255,.08)}
+.admin-list{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.admin-item{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.admin-item .ti{flex:1}.admin-item .ti b{display:block;font-size:.95rem}
+.admin-item .ti small{color:var(--muted);font-size:.78rem}
+.admin-item button{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:9px;padding:8px 12px;cursor:pointer;transition:.2s}
+.admin-item button:hover{border-color:#fff;color:#fff}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(40px);background:linear-gradient(145deg,#ffffff,#c9ccd3);color:#0a0a0c;padding:14px 26px;border-radius:999px;font-weight:600;z-index:300;opacity:0;transition:.4s var(--ease);box-shadow:0 10px 40px rgba(220,228,245,.2)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* nav active (scrollspy) */
+.nav-links a.active:not(.btn){color:var(--text)}
+.nav-links a.active:not(.btn)::after{width:100%}
+
+/* free preview block */
+.gleam{background:linear-gradient(145deg,#eef1f6,#b7bcc6 42%,#7d818b);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 3px 16px rgba(200,212,235,.25))}
+.preview-card{border:1px solid var(--line);border-radius:28px;overflow:hidden;background:radial-gradient(circle at 82% -10%,rgba(150,165,200,.16),transparent 55%),linear-gradient(160deg,rgba(255,255,255,.03),rgba(10,11,13,0))}
+.preview-grid{display:grid;grid-template-columns:1.15fr 1fr}
+.preview-pitch{padding:58px 54px}
+.preview-pitch h2{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.1;letter-spacing:-.01em;margin:16px 0 22px;background:linear-gradient(180deg,#fff,#9a9ca3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.preview-lead{color:var(--muted);font-size:1.06rem;line-height:1.6}
+.preview-lead b{color:var(--text);font-weight:600}
+.preview-steps{margin-top:34px;display:flex;flex-direction:column}
+.pstep{display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-top:1px solid var(--line)}
+.pstep:first-child{border-top:none;padding-top:0}
+.pstep .pn{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:#c9cfd8;border:1px solid var(--line-2);border-radius:9px;padding:6px 0;min-width:44px;text-align:center;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.01))}
+.pstep b{font-size:1.02rem;display:block;margin-bottom:3px}
+.pstep p{color:var(--muted);font-size:.9rem}
+.preview-form-wrap{border-left:1px solid var(--line);background:linear-gradient(160deg,#16181d,#0a0b0d);display:flex;flex-direction:column}
+.browser-bar{display:flex;align-items:center;gap:8px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.browser-bar .bdot{width:11px;height:11px;border-radius:50%;background:#33353b}
+.browser-bar .burl{margin-left:10px;flex:1;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:8px;padding:7px 12px}
+.preview-form-inner{padding:32px 36px 38px;flex:1}
+
+/* useful links */
+.links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.lcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;background:var(--panel);transition:.32s var(--ease);min-height:196px;cursor:pointer}
+.lcard:hover{border-color:var(--line-2);background:var(--panel-2);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.lcard .lic{width:48px;height:48px;border-radius:12px;border:1px solid var(--line-2);display:grid;place-items:center;font-size:1.3rem;color:#eef1f6;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.02));margin-bottom:20px}
+.lcard .lbody{flex:1}
+.lcard .ltitle{font-family:'Unbounded',sans-serif;font-weight:500;font-size:1.16rem;margin-bottom:8px}
+.lcard .ldesc{color:var(--muted);font-size:.92rem}
+.lcard .lfoot{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+.lcard .lhost{font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--muted-2)}
+.lcard .larr{color:var(--muted-2);transition:.3s var(--ease);font-size:1.05rem}
+.lcard:hover .larr{color:#fff;transform:translate(3px,-3px)}
+
+@media(max-width:980px){
+  .preview-grid{grid-template-columns:1fr}
+  .preview-form-wrap{border-left:none;border-top:1px solid var(--line)}
+  .links-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .preview-pitch{padding:40px 26px}
+  .preview-form-inner{padding:28px 24px 32px}
+  .preview-tabs{padding:22px 24px 0;flex-direction:column}
+  .hstatus{display:none}
+  .links-grid{grid-template-columns:1fr}
+}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
+
+/* header status badge */
+.hstatus{display:inline-flex;align-items:center;gap:7px;margin-left:14px;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.05em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 11px;white-space:nowrap;vertical-align:middle}
+.hstatus .hdot{width:7px;height:7px;border-radius:50%;background:#7ee0a6;box-shadow:0 0 8px rgba(126,224,166,.6)}
+
+/* preview tabs */
+.preview-tabs{display:flex;gap:8px;padding:22px 54px 0}
+.ptab{flex:1;text-align:center;padding:13px 12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;color:var(--muted);font-weight:600;font-size:.98rem;transition:.2s var(--ease);background:rgba(255,255,255,.02)}
+.ptab:hover{border-color:var(--line-2);color:var(--text)}
+.ptab.active{border-color:#fff;color:var(--text);background:rgba(255,255,255,.08)}
+
+/* urgent warning */
+.urgent-warn{display:flex;gap:12px;align-items:flex-start;background:rgba(226,112,90,.08);border:1px solid rgba(226,112,90,.35);border-radius:14px;padding:15px 17px;margin-bottom:18px;color:#eabaad;font-size:.9rem;line-height:1.5}
+.urgent-warn b{color:#f4d9d0;font-weight:600}
+.urgent-warn .wic{font-size:1.1rem;line-height:1.2}
+
+/* responsive */
+@media(max-width:980px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .services,.reviews,.mat-grid{grid-template-columns:repeat(2,1fr)}
+  .process{grid-template-columns:repeat(2,1fr)}
+  .cta-grid,.calc{grid-template-columns:1fr}
+  .calc-right{border-left:none;border-top:1px solid var(--line)}
+  .cta{padding:46px 32px}
+}
+@media(max-width:760px){
+  .nav-links{position:fixed;inset:78px 0 auto 0;flex-direction:column;gap:0;background:rgba(6,6,7,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:14px 28px 26px;transform:translateY(-130%);transition:transform .45s var(--ease);align-items:flex-start}
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{padding:14px 0;width:100%;border-bottom:1px solid var(--line);font-size:1.05rem}
+  .nav-links .btn{margin-top:14px;width:100%;justify-content:center}
+  .burger{display:flex}
+  #cursor{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .services,.work-grid,.reviews,.mat-grid{grid-template-columns:1fr}
+  .section-pad{padding:84px 0}
+  .wrap{padding:0 20px}
+  .modal-body,.calc-left,.calc-right{padding:28px 24px}
+}
+@media(max-width:420px){.stats{grid-template-columns:1fr}.modal-gallery{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="cursor"></div>
+<div class="aura"></div>
+<div class="bg-grid"></div>
+<div class="grain"></div>
+<div class="toast" id="toast"></div>
+
+<!-- NAV -->
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="logo"><span class="mark">ХМ</span> Хакиев Магомет<span class="hstatus" id="navStatus"><span class="hdot" id="navDot"></span><span id="navStatusText">Приём открыт</span></span></a>
+    <nav class="nav-links" id="menu">
+      <a href="#about">О студии</a>
+      <a href="#services">Услуги</a>
+      <a href="#preview">Превью</a>
+      <a href="#links">Полезное</a>
+      <a href="#materials">Материалы</a>
+      <a href="#contact" class="btn btn-accent" id="navCta" data-cmode="normal">Обсудить проект <span class="arr">→</span></a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="status reveal" id="heroStatus"><span class="dot" id="heroDot"></span> <span id="heroStatusText">Открыт для новых проектов</span></div>
+    <h1 class="reveal d1">Создаём <span class="accent">сайты</span><br>под ключ</h1>
+    <p class="lead reveal d2">Меня зовут Хакиев Магомет. Я веб-разработчик и руководитель команды, которая превращает идеи в быстрые, удобные и продающие сайты.</p>
+    <p class="sub reveal d3">Небольшие задачи закрываю лично, крупные — командой дизайнеров и разработчиков. От первого экрана до запуска на хостинге всё под контролем.</p>
+    <div class="hero-cta reveal d4" id="heroCta">
+      <a href="#contact" class="btn btn-accent" data-cmode="normal">Заказать сайт <span class="arr">→</span></a>
+      <a href="#preview" class="btn btn-ghost">Бесплатное превью</a>
+    </div>
+    <div class="stats reveal d5">
+      <div class="stat"><div class="num" data-count="8" data-suffix="+">0</div><div class="lbl">лет в разработке</div></div>
+      <div class="stat"><div class="num" data-count="120" data-suffix="+">0</div><div class="lbl">проектов запущено</div></div>
+      <div class="stat"><div class="num" data-count="6" data-suffix="">0</div><div class="lbl">человек в команде</div></div>
+      <div class="stat"><div class="num" data-count="100" data-suffix="%">0</div><div class="lbl">проектов до результата</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Сайты</span><span>Боты</span><span>Приложения</span><span>Автоматизация</span><span>Интернет-магазины</span><span>Чат-боты</span><span>Редизайн</span><span>SEO</span>
+    <span>Сайты</span><span>Боты</span><span>Приложения</span><span>Автоматизация</span><span>Интернет-магазины</span><span>Чат-боты</span><span>Редизайн</span><span>SEO</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section-pad">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="portrait reveal tilt">
+        <div class="ring"></div><div class="ring"></div>
+        <div class="initials tilt-in">ХМ</div>
+        <div class="tag">// Хакиев Магомет · веб-студия</div>
+      </div>
+      <div class="about-text reveal d2">
+        <span class="eyebrow">О студии</span>
+        <h2 class="chrome" style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.06;margin:16px 0 24px;letter-spacing:-.01em">Команда, которая делает сайты для результата</h2>
+        <p>Меня зовут <strong>Хакиев Магомет</strong>, и я профессионально занимаюсь веб-разработкой уже <span class="hl">более 8 лет</span>. За это время я прошёл путь от первых страниц до сложных веб-сервисов и собрал <strong>собственную команду</strong> дизайнеров, разработчиков и тестировщиков.</p>
+        <p>Небольшие проекты я веду лично — быстро и качественно. Для крупных задач подключаю команду: дизайнер, фронтенд, бэкенд и QA. Так мы закрываем проекты <span class="hl">любой сложности</span> без потери в качестве и сроках.</p>
+        <p>Я не просто пишу код — я отвечаю за результат. Понятная смета, фиксированные сроки и связь в одном мессенджере. Без воды и навязанных услуг.</p>
+        <div class="chips">
+          <div class="chip">HTML / CSS</div><div class="chip">JavaScript</div><div class="chip">React</div>
+          <div class="chip">Node.js</div><div class="chip">UI/UX дизайн</div><div class="chip">WordPress</div>
+          <div class="chip">Figma → код</div><div class="chip">SEO</div><div class="chip">Анимации / 3D</div>
+          <div class="chip">Боты</div><div class="chip">Автоматизация</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section-pad">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div><span class="eyebrow">Услуги</span><h2>Что мы делаем</h2></div>
+      <p>Полный цикл: от идеи и дизайна до готового сайта на вашем хостинге. Выберите формат — остальное берём на себя.</p>
+    </div>
+    <div class="services">
+      <div class="svc tilt reveal d1"><div class="ic tilt-in">◧</div><h3 class="tilt-in">Лендинги</h3><p>Одностраничные сайты для продукта, услуги или акции. Цепляющий первый экран и формы, которые собирают заявки.</p><div class="price">от 15 000 ₽ · <span>3–5 дней</span></div></div>
+      <div class="svc tilt reveal d2"><div class="ic tilt-in">▦</div><h3 class="tilt-in">Корпоративные сайты</h3><p>Многостраничные сайты для компаний: услуги, портфолио, команда, блог. Солидный вид и понятная навигация.</p><div class="price">от 35 000 ₽ · <span>7–14 дней</span></div></div>
+      <div class="svc tilt reveal d3"><div class="ic tilt-in">▤</div><h3 class="tilt-in">Интернет-магазины</h3><p>Каталог, карточки, корзина и оплата. Удобно покупать с телефона, легко управлять заказами из админки.</p><div class="price">от 60 000 ₽ · <span>от 2 недель</span></div></div>
+      <div class="svc tilt reveal d1"><div class="ic tilt-in">◭</div><h3 class="tilt-in">Веб-приложения</h3><p>Личные кабинеты, калькуляторы, сервисы и дашборды. Чистый код, скорость и логика под вашу задачу.</p><div class="price">по проекту · <span>обсуждается</span></div></div>
+      <div class="svc tilt reveal d2"><div class="ic tilt-in">⟳</div><h3 class="tilt-in">Редизайн сайта</h3><p>Обновим устаревший сайт: современный вид, скорость, адаптив под мобильные и аккуратная вёрстка под SEO.</p><div class="price">от 20 000 ₽ · <span>5–10 дней</span></div></div>
+      <div class="svc tilt reveal d3"><div class="ic tilt-in">⛭</div><h3 class="tilt-in">Поддержка</h3><p>Правки, новые блоки, аналитика, ускорение загрузки и техническое сопровождение готового сайта.</p><div class="price">от 3 000 ₽ · <span>по запросу</span></div></div>
+      <div class="svc tilt reveal d1"><div class="ic tilt-in">⬡</div><h3 class="tilt-in">Боты и чат-боты</h3><p>Telegram- и веб-боты: приём заявок, оплаты, уведомления и авто-ответы. Разгружают рутину и держат клиента на связи 24/7.</p><div class="price">по проекту · <span>обсуждается</span></div></div>
+      <div class="svc tilt reveal d2"><div class="ic tilt-in">⟲</div><h3 class="tilt-in">Автоматизация</h3><p>Связываем сайт, заявки, таблицы и мессенджеры в один процесс. Меньше ручной работы — заявки не теряются.</p><div class="price">по проекту · <span>обсуждается</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE PREVIEW -->
+<section id="preview" class="section-pad">
+  <div class="wrap">
+    <div class="preview-card reveal">
+      <div class="preview-tabs">
+        <div class="ptab active" data-ptab="preview">Превью моего сайта</div>
+        <div class="ptab" data-ptab="works">Посмотреть ваши работы</div>
+      </div>
+      <div class="preview-grid">
+        <div class="preview-pitch">
+          <div data-pv="preview">
+            <span class="eyebrow">Бесплатное превью</span>
+            <h2>Покажу, как будет выглядеть ваш сайт — <span class="gleam">до оплаты</span></h2>
+            <p class="preview-lead">Пришлите ссылку на сайт, который вам нравится, скриншот или просто опишите идею словами. Я нарисую дизайн вашего будущего сайта в этом же премиальном стиле и отправлю на согласование — <b>бесплатно и без обязательств</b>.</p>
+            <div class="preview-steps">
+              <div class="pstep"><span class="pn">01</span><div><b>Скидываете пример</b><p>Ссылку, фото или пару слов о том, что хотите получить.</p></div></div>
+              <div class="pstep"><span class="pn">02</span><div><b>Готовлю превью</b><p>За 1–2 дня собираю первый экран вашего сайта.</p></div></div>
+              <div class="pstep"><span class="pn">03</span><div><b>Нравится — запускаем</b><p>Согласуем детали, и я собираю сайт под ключ.</p></div></div>
+            </div>
+          </div>
+          <div data-pv="works" style="display:none">
+            <span class="eyebrow">Наши работы</span>
+            <h2>Покажем примеры проектов — <span class="gleam">под вашу задачу</span></h2>
+            <p class="preview-lead">Оставьте почту или Telegram — пришлём ссылку на подборку наших работ и кейсов. Подберём примеры, близкие к тому, что нужно именно вам. <b>Бесплатно и ни к чему не обязывает.</b></p>
+            <div class="preview-steps">
+              <div class="pstep"><span class="pn">01</span><div><b>Оставляете контакт</b><p>Почта или Telegram — куда прислать ссылку.</p></div></div>
+              <div class="pstep"><span class="pn">02</span><div><b>Присылаем работы</b><p>Ссылку на портфолио и кейсы, близкие к вашей задаче.</p></div></div>
+              <div class="pstep"><span class="pn">03</span><div><b>Понравится — обсудим</b><p>Расскажем, как сделать похожее для вас.</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-form-wrap">
+          <div data-pv="preview">
+            <div class="browser-bar"><span class="bdot"></span><span class="bdot"></span><span class="bdot"></span><div class="burl">превью-вашего-сайта.ru</div></div>
+            <div class="preview-form-inner">
+              <form id="pform">
+                <label for="pref">Ссылка на пример или ваш сайт</label>
+                <input type="text" id="pref" name="Пример" placeholder="https:// ... или оставьте пустым">
+                <label for="pwant">Что хотите получить</label>
+                <textarea id="pwant" name="Описание" rows="3" placeholder="Например: лендинг для кофейни — тёмный, с меню и доставкой" required></textarea>
+                <label for="pcontact">Как с вами связаться</label>
+                <input type="text" id="pcontact" name="Контакт" placeholder="+7 ... или @username" required>
+                <button type="submit" class="btn btn-accent">Получить превью бесплатно <span class="arr">→</span></button>
+                <div class="form-note">// пришлю превью на ваш контакт за 1–2 дня</div>
+              </form>
+              <div class="form-ok" id="pformOk"><div class="big">Заявка принята ✓</div><p style="color:var(--muted)">Готовлю превью — свяжусь с вами в течение 1–2 дней.</p></div>
+            </div>
+          </div>
+          <div data-pv="works" style="display:none">
+            <div class="browser-bar"><span class="bdot"></span><span class="bdot"></span><span class="bdot"></span><div class="burl">наши-работы.ru</div></div>
+            <div class="preview-form-inner">
+              <form id="wform">
+                <label for="wwant">Что вам интересно</label>
+                <input type="text" id="wwant" name="Интересует" placeholder="Например: лендинг, магазин, бот">
+                <label for="wcontact">Куда прислать ссылку</label>
+                <input type="text" id="wcontact" name="Контакт" placeholder="Почта или @username" required>
+                <button type="submit" class="btn btn-accent">Получить ссылку на работы <span class="arr">→</span></button>
+                <div class="form-note">// пришлём подборку работ на ваш контакт</div>
+              </form>
+              <div class="form-ok" id="wformOk"><div class="big">Заявка принята ✓</div><p style="color:var(--muted)">Пришлём ссылку на наши работы на ваш контакт в ближайшее время.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div><span class="eyebrow">Калькулятор</span><h2>Рассчитайте стоимость</h2></div>
+      <p>Примерная оценка за минуту. Точную смету подготовлю после короткого брифа.</p>
+    </div>
+    <div class="calc reveal">
+      <div class="calc-left">
+        <h3>Тип сайта</h3>
+        <div class="opt-row" data-group="type">
+          <div class="opt active" data-val="15000">Лендинг</div>
+          <div class="opt" data-val="35000">Корпоративный</div>
+          <div class="opt" data-val="60000">Магазин</div>
+          <div class="opt" data-val="90000">Веб-приложение</div>
+        </div>
+        <h3>Дополнительно</h3>
+        <div class="opt-row" data-group="extra">
+          <div class="opt" data-val="12000">Индивид. дизайн</div>
+          <div class="opt" data-val="9000">SEO-оптимизация</div>
+          <div class="opt" data-val="7000">Тексты / копирайт</div>
+          <div class="opt" data-val="15000">Анимации / 3D</div>
+          <div class="opt" data-val="6000">Поддержка 1 мес.</div>
+        </div>
+      </div>
+      <div class="calc-right">
+        <div class="small">Примерная стоимость</div>
+        <div class="calc-price"><span id="calcPrice">15 000</span> ₽</div>
+        <p id="calcTerm">Срок: 3–5 дней. Это ориентир — финальная цена зависит от деталей.</p>
+        <a href="#contact" class="btn btn-accent" style="align-self:flex-start">Получить точную смету <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div><span class="eyebrow">Как мы работаем</span><h2>Четыре простых шага</h2></div>
+      <p>Прозрачный процесс без сюрпризов. Вы всегда знаете, на каком этапе проект.</p>
+    </div>
+    <div class="process">
+      <div class="step reveal d1"><div class="n">01</div><h3>Брифинг</h3><p>Обсуждаем задачу, цели и примеры. Фиксируем смету и сроки.</p></div>
+      <div class="step reveal d2"><div class="n">02</div><h3>Дизайн</h3><p>Готовим структуру и макет. Согласуем вид до разработки.</p></div>
+      <div class="step reveal d3"><div class="n">03</div><h3>Разработка</h3><p>Верстаем и программируем, делаем адаптив и тестируем.</p></div>
+      <div class="step reveal d4"><div class="n">04</div><h3>Запуск</h3><p>Размещаем на хостинге, подключаем домен и аналитику.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div><span class="eyebrow">Отзывы</span><h2>Что говорят клиенты</h2></div>
+      <p>Нажмите на отзыв, чтобы прочитать целиком.</p>
+    </div>
+    <div class="reviews" id="reviewGrid"></div>
+  </div>
+</section>
+
+<!-- USEFUL LINKS -->
+<section id="links" class="section-pad">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div><span class="eyebrow">Полезное</span><h2>Полезные ссылки</h2></div>
+      <p>Сервисы и материалы, которыми я пользуюсь сам и рекомендую клиентам. Список пополняется.</p>
+    </div>
+    <div class="links-grid reveal" id="linksGrid"></div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materials" class="section-pad">
+  <div class="wrap">
+    <div class="mat-head reveal">
+      <div><span class="eyebrow">Медиа-центр</span><h2 class="chrome" style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,3.4rem);margin-top:16px">Материалы для скачивания</h2></div>
+    </div>
+    <p class="reveal" style="color:var(--muted);max-width:620px;margin-bottom:34px">Полезные файлы, презентации, фото и видео работ. Скачивайте свободно — это бесплатно.</p>
+    <div class="mat-grid reveal" id="matGrid"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div><span class="eyebrow">FAQ</span><h2>Частые вопросы</h2></div>
+    </div>
+    <div class="faq reveal">
+      <div class="qa"><div class="q">Сколько стоит сайт?<span class="pl">+</span></div><div class="a"><div>Зависит от задачи: лендинг — от 15 000 ₽, корпоративный сайт — от 35 000 ₽, интернет-магазин — от 60 000 ₽. Точную цену называю после короткого брифа. Можно прикинуть в калькуляторе выше.</div></div></div>
+      <div class="qa"><div class="q">Какие сроки?<span class="pl">+</span></div><div class="a"><div>Лендинг — 3–5 дней, корпоративный сайт — 1–2 недели, магазин — от 2 недель. Старт работы в среднем в течение 48 часов после согласования.</div></div></div>
+      <div class="qa"><div class="q">Вы работаете один или командой?<span class="pl">+</span></div><div class="a"><div>И так, и так. Небольшие проекты я веду лично. Для крупных задач подключаю свою команду — дизайнера, фронтенд- и бэкенд-разработчиков, тестировщика.</div></div></div>
+      <div class="qa"><div class="q">Поможете с хостингом и доменом?<span class="pl">+</span></div><div class="a"><div>Да. Размещу сайт на вашем хостинге, подключу домен, настрою почту и аналитику. Передам все доступы и объясню, как пользоваться.</div></div></div>
+      <div class="qa"><div class="q">Что после запуска?<span class="pl">+</span></div><div class="a"><div>Даю гарантию на работу и остаюсь на связи. Можно подключить ежемесячную поддержку: правки, новые блоки, обновления и ускорение.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-pad">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="cta-grid">
+        <div>
+          <span class="eyebrow">Контакты</span>
+          <h2 id="contactHead">Расскажите о проекте</h2>
+          <p class="sub" id="contactSub">Опишите задачу в двух словах — отвечу в течение нескольких часов, сориентирую по срокам и стоимости. Консультация по заказу бесплатная.</p>
+          <div class="contacts">
+            <a href="mailto:khakiev.m.a@list.ru"><span class="k">Email</span> khakiev.m.a@list.ru</a>
+            <a href="https://t.me/khakiev_magomet" target="_blank" rel="noopener"><span class="k">Telegram</span> @khakiev_magomet</a>
+            <a href="https://wa.me/79300842922" target="_blank" rel="noopener"><span class="k">WhatsApp</span> wa.me/79300842922</a>
+            <a href="tel:+79300842922"><span class="k">Телефон</span> +7 930 084-29-22</a>
+          </div>
+          <button class="btn btn-ghost vcard-btn" id="vcardBtn">⬇ Сохранить контакт (vCard)</button>
+        </div>
+        <div>
+          <div class="urgent-warn" id="urgentWarn" style="display:none"><span class="wic">⚠️</span><div><b>Только для действительно срочных задач.</b> Если проект может подождать — лучше оставьте заявку в листе ожидания, я отвечу, как только освобожусь. Срочные заявки я разбираю в первую очередь.</div></div>
+          <form id="cform" action="https://formsubmit.co/khakiev.m.a@list.ru" method="POST">
+            <input type="hidden" name="_subject" id="cSubject" value="Новая заявка — khakiev.ru">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="Режим" id="cMode" value="Обычная заявка">
+            <label for="name">Как вас зовут</label>
+            <input type="text" id="name" name="Имя" placeholder="Ваше имя" required>
+            <label for="contact">Телефон или Telegram</label>
+            <input type="text" id="contact" name="Контакт" placeholder="+7 ... или @username" required>
+            <label for="msg">О проекте</label>
+            <textarea id="msg" name="Сообщение" rows="4" placeholder="Какой сайт нужен и для чего" required></textarea>
+            <button type="submit" class="btn btn-accent" id="cSubmit">Отправить заявку <span class="arr">→</span></button>
+            <div class="form-note">// заявка придёт на khakiev.m.a@list.ru</div>
+          </form>
+          <div class="form-ok" id="formOk"><div class="big">Заявка отправлена ✓</div><p style="color:var(--muted)">Спасибо! Свяжусь с вами в ближайшее время.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot">
+    <div class="copy">© 2018 — <span id="year"></span> Хакиев Магомет · Веб-разработка под ключ</div>
+    <div class="socials">
+      <a href="https://t.me/khakiev_magomet" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://wa.me/79300842922" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:khakiev.m.a@list.ru">Email</a>
+      <a href="tel:+79300842922">+7 930 084-29-22</a>
+      <a href="#top">Наверх ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- REVIEW MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-card" id="modalCard"></div>
+</div>
+
+<script>
+/* ============================================================
+   ПРИЁМ ЗАКАЗОВ — переключатель статуса.
+     true  = приём открыт (обычный режим)
+     false = приём на паузе (лист ожидания + кнопка «Это срочно»)
+   Поменяйте одно слово ниже и сохраните файл — сайт перестроится сам.
+   ============================================================ */
+const ПРИЁМ_ЗАКАЗОВ = true;
+
+/* режимы формы контактов: normal / waitlist / urgent */
+function setContactMode(mode){
+  const head=document.getElementById('contactHead');
+  const sub=document.getElementById('contactSub');
+  const warn=document.getElementById('urgentWarn');
+  const subj=document.getElementById('cSubject');
+  const modeInp=document.getElementById('cMode');
+  const btn=document.getElementById('cSubmit');
+  const msg=document.getElementById('msg');
+  if(!head)return;
+  if(mode==='waitlist'){
+    head.textContent='Записаться в лист ожидания';
+    sub.textContent='Сейчас приём заказов на паузе. Оставьте контакт — напишу вам первым, как только освобожусь.';
+    subj.value='🕓 Лист ожидания — khakiev.ru';
+    modeInp.value='Лист ожидания';
+    btn.innerHTML='Записаться в лист ожидания <span class="arr">→</span>';
+    if(warn)warn.style.display='none';
+    if(msg){msg.required=false;msg.placeholder='Пара слов о задаче (по желанию)';}
+  }else if(mode==='urgent'){
+    head.textContent='Срочная заявка';
+    sub.textContent='Опишите задачу и желаемый срок — срочные заявки я разбираю в первую очередь.';
+    subj.value='🔴 СРОЧНО — khakiev.ru';
+    modeInp.value='СРОЧНО';
+    btn.innerHTML='Отправить срочную заявку <span class="arr">→</span>';
+    if(warn)warn.style.display='flex';
+    if(msg){msg.required=true;msg.placeholder='Что нужно и в какие сроки';}
+  }else{
+    head.textContent='Расскажите о проекте';
+    sub.textContent='Опишите задачу в двух словах — отвечу в течение нескольких часов, сориентирую по срокам и стоимости. Консультация по заказу бесплатная.';
+    subj.value='Новая заявка — khakiev.ru';
+    modeInp.value='Обычная заявка';
+    btn.innerHTML='Отправить заявку <span class="arr">→</span>';
+    if(warn)warn.style.display='none';
+    if(msg){msg.required=true;msg.placeholder='Какой сайт нужен и для чего';}
+  }
+}
+
+/* применяем статус приёма заказов ко всему сайту */
+(function applyOrderStatus(){
+  const open=ПРИЁМ_ЗАКАЗОВ;
+  const heroStatus=document.getElementById('heroStatus');
+  const heroDot=document.getElementById('heroDot');
+  const heroTxt=document.getElementById('heroStatusText');
+  const heroCta=document.getElementById('heroCta');
+  const navStatus=document.getElementById('navStatus');
+  const navDot=document.getElementById('navDot');
+  const navTxt=document.getElementById('navStatusText');
+  const navCta=document.getElementById('navCta');
+  if(open){
+    if(heroDot){heroDot.style.background='#7ee0a6';heroDot.style.boxShadow='0 0 10px rgba(126,224,166,.6)';}
+    if(heroTxt)heroTxt.textContent='Открыт для новых проектов';
+    if(navDot){navDot.style.background='#7ee0a6';navDot.style.boxShadow='0 0 8px rgba(126,224,166,.6)';}
+    if(navTxt)navTxt.textContent='Приём открыт';
+    if(navCta){navCta.innerHTML='Обсудить проект <span class="arr">→</span>';navCta.dataset.cmode='normal';}
+    if(heroCta)heroCta.innerHTML='<a href="#contact" class="btn btn-accent" data-cmode="normal">Заказать сайт <span class="arr">→</span></a><a href="#preview" class="btn btn-ghost">Бесплатное превью</a>';
+  }else{
+    if(heroDot){heroDot.style.background='#e2705a';heroDot.style.boxShadow='0 0 10px rgba(226,112,90,.55)';}
+    if(heroTxt)heroTxt.textContent='Приём заказов приостановлен';
+    if(heroStatus)heroStatus.style.borderColor='rgba(226,112,90,.3)';
+    if(navDot){navDot.style.background='#e2705a';navDot.style.boxShadow='0 0 8px rgba(226,112,90,.5)';}
+    if(navTxt)navTxt.textContent='Приём на паузе';
+    if(navStatus)navStatus.style.borderColor='rgba(226,112,90,.3)';
+    if(navCta){navCta.innerHTML='Лист ожидания <span class="arr">→</span>';navCta.dataset.cmode='waitlist';}
+    if(heroCta)heroCta.innerHTML='<a href="#contact" class="btn btn-accent" data-cmode="waitlist">Встать в лист ожидания <span class="arr">→</span></a><a href="#contact" class="btn btn-ghost" data-cmode="urgent">Это срочно</a>';
+  }
+})();
+
+/* клики по кнопкам, переключающим режим формы */
+document.addEventListener('click',function(e){
+  const el=e.target.closest('[data-cmode]');
+  if(el)setContactMode(el.dataset.cmode);
+});
+setContactMode('normal');
+
+/* ====== DATA ====== */
+
+/* ====== ПОЛЕЗНЫЕ ССЫЛКИ ======
+   Чтобы добавить свою ссылку — впишите новый объект в массив ниже:
+   {icon:'★', title:'Название', desc:'Короткое описание.', url:'https://...'}
+   icon — любой символ/эмодзи. Готово: ссылка появится на сайте автоматически. */
+const usefulLinks = [
+  {icon:'✎', title:'Figma', desc:'Дизайн макетов и прототипов интерфейсов.', url:'https://figma.com'},
+  {icon:'⚡', title:'Google PageSpeed', desc:'Проверка скорости и оптимизации сайта.', url:'https://pagespeed.web.dev'},
+  {icon:'◲', title:'Unsplash', desc:'Бесплатные фотографии высокого качества.', url:'https://unsplash.com'},
+  {icon:'◈', title:'Google Fonts', desc:'Библиотека бесплатных веб-шрифтов.', url:'https://fonts.google.com'},
+  {icon:'⬡', title:'TinyPNG', desc:'Сжатие картинок без потери качества.', url:'https://tinypng.com'},
+  {icon:'✦', title:'Coolors', desc:'Подбор цветовых палитр для сайта.', url:'https://coolors.co'}
+];
+
+const reviews = [
+  {av:"А",name:"Аслан Б.",role:"студия флористики",stars:"★★★★★",text:"Магомет сделал лендинг за 4 дня. Заявки пошли с первой недели. Всё чётко и по делу, на связи был постоянно, правки вносил быстро. Отдельно понравилось, что объяснил, как самому менять фото на сайте. Рекомендую без сомнений."},
+  {av:"М",name:"Марина К.",role:"директор IT-компании",stars:"★★★★★",text:"Перенесли старый сайт в современный вид. Скорость выросла в разы, телефон наконец показывает всё корректно. Команда работала слаженно: дизайн, разработка, тесты — каждый этап согласовывали. Сроки выдержали."},
+  {av:"Р",name:"Руслан Д.",role:"предприниматель",stars:"★★★★★",text:"Сделали интернет-магазин под ключ и обучили, как добавлять товары и обрабатывать заказы. Онлайн-продажи почти удвоились за пару месяцев. Спокойно доверю им и следующий проект."}
+];
+
+/* ====== RENDER USEFUL LINKS ====== */
+const linksGrid=document.getElementById('linksGrid');
+if(linksGrid){
+  usefulLinks.forEach((l,i)=>{
+    const a=document.createElement('a');
+    a.className='lcard tilt reveal d'+((i%3)+1);
+    a.href=l.url;a.target='_blank';a.rel='noopener';
+    let host='';try{host=new URL(l.url).hostname.replace('www.','')}catch(e){host=l.url}
+    a.innerHTML=`<div class="lic tilt-in">${l.icon||'↗'}</div>
+    <div class="lbody"><div class="ltitle">${l.title}</div><div class="ldesc">${l.desc||''}</div></div>
+    <div class="lfoot"><span class="lhost">${host}</span><span class="larr">↗</span></div>`;
+    linksGrid.appendChild(a);
+  });
+}
+
+/* ====== RENDER REVIEWS ====== */
+const reviewGrid=document.getElementById('reviewGrid');
+reviews.forEach((r,i)=>{
+  const el=document.createElement('div');
+  el.className='review tilt reveal d'+((i%3)+1);
+  el.innerHTML=`<div class="stars">${r.stars}</div><div class="quote">${r.text}</div>
+  <div class="who"><div class="av">${r.av}</div><div><div class="name">${r.name}</div><div class="role">${r.role}</div></div></div>
+  <span class="more">читать →</span>`;
+  el.addEventListener('click',()=>openReview(r));
+  reviewGrid.appendChild(el);
+});
+function openReview(r){
+  const c=document.getElementById('modalCard');
+  c.innerHTML=`<button class="modal-close" data-close>✕</button>
+  <div class="modal-body"><div class="stars" style="color:#e6eaf1;letter-spacing:3px;font-size:1.1rem;margin-bottom:20px">${r.stars}</div>
+  <p style="font-size:1.25rem;line-height:1.6;font-weight:500;margin-bottom:26px">«${r.text}»</p>
+  <div class="who" style="display:flex;align-items:center;gap:14px"><div class="av" style="width:50px;height:50px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-weight:700;color:#eef1f6;background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.02))">${r.av}</div>
+  <div><div style="font-weight:600;font-size:1.05rem">${r.name}</div><div style="color:var(--muted)">${r.role}</div></div></div></div>`;
+  showModal('modal');
+}
+
+/* ====== MODAL HELPERS ====== */
+function showModal(id){document.getElementById(id).classList.add('show');document.body.style.overflow='hidden'}
+function closeModals(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'));document.body.style.overflow=''}
+document.querySelectorAll('.modal-bg').forEach(b=>b.addEventListener('click',closeModals));
+document.addEventListener('click',e=>{const c=e.target.closest('[data-close]');if(c)closeModals();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModals()});
+
+/* ====== STORAGE (graceful) ====== */
+const store={
+  data:{},
+  get(k){try{const v=localStorage.getItem(k);return v}catch(e){return this.data[k]||null}},
+  set(k,v){try{localStorage.setItem(k,v)}catch(e){this.data[k]=v}}
+};
+
+/* ====== MATERIALS ====== */
+const MAT_KEY='khakiev_materials_v1';
+function txtFile(content){return 'data:text/plain;charset=utf-8,'+encodeURIComponent(content)}
+const defaultMaterials=[
+  {id:'d1',type:'doc',title:'Бриф на разработку сайта',desc:'Шаблон с вопросами, чтобы быстро описать ваш проект.',fileName:'brief-khakiev.txt',
+   data:txtFile('БРИФ НА РАЗРАБОТКУ САЙТА — Хакиев Магомет\n\n1. О компании/проекте:\n2. Какой нужен сайт (лендинг/корп/магазин/приложение):\n3. Цель сайта (заявки/продажи/имидж):\n4. Примеры сайтов, которые нравятся:\n5. Что НЕ нравится:\n6. Есть ли логотип/фирстиль:\n7. Тексты и фото — есть или нужны:\n8. Желаемый срок:\n9. Бюджет:\n10. Контакт для связи:\n\nЗаполните и пришлите на khakiev.m.a@list.ru')},
+  {id:'d2',type:'doc',title:'Чек-лист перед запуском сайта',desc:'15 пунктов, которые стоит проверить до публикации.',fileName:'checklist-launch.txt',
+   data:txtFile('ЧЕК-ЛИСТ ПЕРЕД ЗАПУСКОМ САЙТА\n\n[ ] Проверена вёрстка на телефоне и ПК\n[ ] Работают все формы\n[ ] Подключена аналитика\n[ ] Настроены favicon и заголовки\n[ ] Сжаты изображения\n[ ] Проверены ссылки\n[ ] Подключён SSL (https)\n[ ] Настроена почта на домене\n[ ] Проверена скорость загрузки\n[ ] Заполнены SEO-описания\n[ ] Карта сайта sitemap.xml\n[ ] robots.txt\n[ ] Резервная копия\n[ ] Проверка в разных браузерах\n[ ] 404-страница\n\n© Хакиев Магомет')}
+];
+function loadMaterials(){
+  const raw=store.get(MAT_KEY);
+  if(raw){try{return JSON.parse(raw)}catch(e){}}
+  return defaultMaterials.slice();
+}
+function saveMaterials(arr){store.set(MAT_KEY,JSON.stringify(arr))}
+let materials=loadMaterials();
+function renderMaterials(){
+  const g=document.getElementById('matGrid');g.innerHTML='';
+  if(!materials.length){g.innerHTML='<div class="mat-empty">Пока нет материалов.</div>';return}
+  const icons={photo:'🖼',video:'🎬',doc:'📄'};
+  const labels={photo:'фото',video:'видео',doc:'документ'};
+  materials.forEach(m=>{
+    let prev='';
+    if(m.type==='photo')prev=`<img src="${m.data}" alt="">`;
+    else if(m.type==='video')prev=`<video src="${m.data}" muted></video>`;
+    else prev=`<div class="ic">${icons[m.type]||'📄'}</div>`;
+    const el=document.createElement('div');
+    el.className='mat';
+    el.innerHTML=`<div class="prev"><span class="badge">${labels[m.type]||'файл'}</span>${prev}</div>
+    <div class="mbody"><div class="mtitle">${m.title}</div><div class="mdesc">${m.desc||''}</div>
+    <div class="mfoot"><a class="dl" href="${m.data}" download="${m.fileName||'file'}">⬇ Скачать</a></div></div>`;
+    g.appendChild(el);
+  });
+}
+renderMaterials();
+
+/* ====== TOAST ====== */
+let toastT;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2600)}
+
+/* ====== CALCULATOR ====== */
+const fmt=n=>n.toLocaleString('ru-RU');
+function recalc(){
+  let total=0;
+  const typeEl=document.querySelector('[data-group="type"] .opt.active');
+  if(typeEl)total+=+typeEl.dataset.val;
+  document.querySelectorAll('[data-group="extra"] .opt.active').forEach(o=>total+=+o.dataset.val);
+  document.getElementById('calcPrice').textContent=fmt(total);
+  const terms={15000:'3–5 дней',35000:'7–14 дней',60000:'от 2 недель',90000:'по графику проекта'};
+  const base=typeEl?+typeEl.dataset.val:15000;
+  document.getElementById('calcTerm').textContent='Срок: '+(terms[base]||'обсуждается')+'. Это ориентир — финальная цена зависит от деталей.';
+}
+document.querySelectorAll('[data-group="type"] .opt').forEach(o=>o.addEventListener('click',()=>{
+  document.querySelectorAll('[data-group="type"] .opt').forEach(x=>x.classList.remove('active'));o.classList.add('active');recalc();
+}));
+document.querySelectorAll('[data-group="extra"] .opt').forEach(o=>o.addEventListener('click',()=>{o.classList.toggle('active');recalc()}));
+recalc();
+
+/* ====== vCARD ====== */
+document.getElementById('vcardBtn').addEventListener('click',()=>{
+  const v=`BEGIN:VCARD
+VERSION:3.0
+N:Хакиев;Магомет;;;
+FN:Хакиев Магомет
+TITLE:Веб-разработчик
+EMAIL:khakiev.m.a@list.ru
+TEL;TYPE=CELL:+79300842922
+URL:https://t.me/khakiev_magomet
+NOTE:Веб-разработка под ключ. Telegram: @khakiev_magomet
+END:VCARD`;
+  const blob=new Blob([v],{type:'text/vcard'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Хакиев_Магомет.vcf';a.click();
+  toast('Контакт сохранён ✓');
+});
+
+/* ====== FAQ ====== */
+document.querySelectorAll('.qa .q').forEach(q=>q.addEventListener('click',()=>{
+  const qa=q.parentElement;const a=qa.querySelector('.a');
+  const open=qa.classList.contains('open');
+  document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight='0'});
+  if(!open){qa.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+}));
+
+/* ====== CONTACT FORM (FormSubmit AJAX) ====== */
+document.getElementById('cform').addEventListener('submit',function(e){
+  e.preventDefault();
+  const btn=this.querySelector('button[type=submit]');const old=btn.innerHTML;btn.innerHTML='Отправляю...';
+  const fd=new FormData(this);
+  fetch('https://formsubmit.co/ajax/khakiev.m.a@list.ru',{method:'POST',headers:{'Accept':'application/json'},body:fd})
+    .then(r=>r.json())
+    .then(()=>{this.style.display='none';document.getElementById('formOk').classList.add('show');toast('Заявка отправлена ✓')})
+    .catch(()=>{
+      // fallback на почтовый клиент
+      const n=fd.get('Имя'),c=fd.get('Контакт'),m=fd.get('Сообщение');
+      window.location.href='mailto:khakiev.m.a@list.ru?subject='+encodeURIComponent('Заявка с сайта — '+n)+'&body='+encodeURIComponent('Имя: '+n+'\nКонтакт: '+c+'\n\n'+m);
+    })
+    .finally(()=>{btn.innerHTML=old});
+});
+
+/* ====== PREVIEW FORM (FormSubmit AJAX) ====== */
+const pform=document.getElementById('pform');
+if(pform){
+  pform.addEventListener('submit',function(e){
+    e.preventDefault();
+    const btn=this.querySelector('button[type=submit]');const old=btn.innerHTML;btn.innerHTML='Отправляю...';
+    const fd=new FormData(this);
+    fd.append('_subject','Запрос бесплатного превью — сайт khakiev');
+    fetch('https://formsubmit.co/ajax/khakiev.m.a@list.ru',{method:'POST',headers:{'Accept':'application/json'},body:fd})
+      .then(r=>r.json())
+      .then(()=>{this.style.display='none';document.getElementById('pformOk').classList.add('show');toast('Заявка на превью принята ✓')})
+      .catch(()=>{
+        const ref=fd.get('Пример'),w=fd.get('Описание'),c=fd.get('Контакт');
+        window.location.href='mailto:khakiev.m.a@list.ru?subject='+encodeURIComponent('Запрос превью с сайта')+'&body='+encodeURIComponent('Пример: '+ref+'\nЧто хочет: '+w+'\nКонтакт: '+c);
+      })
+      .finally(()=>{btn.innerHTML=old});
+  });
+}
+
+/* ====== PREVIEW TABS ====== */
+document.querySelectorAll('.ptab').forEach(t=>t.addEventListener('click',function(){
+  const m=this.dataset.ptab;
+  document.querySelectorAll('.ptab').forEach(x=>x.classList.toggle('active',x===this));
+  document.querySelectorAll('[data-pv]').forEach(el=>{el.style.display=(el.dataset.pv===m)?'':'none'});
+}));
+
+/* ====== WORKS FORM (FormSubmit AJAX) ====== */
+const wform=document.getElementById('wform');
+if(wform){
+  wform.addEventListener('submit',function(e){
+    e.preventDefault();
+    const btn=this.querySelector('button[type=submit]');const old=btn.innerHTML;btn.innerHTML='Отправляю...';
+    const fd=new FormData(this);
+    fd.append('_subject','Запрос работ / портфолио — khakiev.ru');
+    fetch('https://formsubmit.co/ajax/khakiev.m.a@list.ru',{method:'POST',headers:{'Accept':'application/json'},body:fd})
+      .then(r=>r.json())
+      .then(()=>{this.style.display='none';document.getElementById('wformOk').classList.add('show');toast('Заявка на работы принята ✓')})
+      .catch(()=>{
+        const it=fd.get('Интересует'),c=fd.get('Контакт');
+        window.location.href='mailto:khakiev.m.a@list.ru?subject='+encodeURIComponent('Запрос работ с сайта')+'&body='+encodeURIComponent('Интересует: '+it+'\nКонтакт: '+c);
+      })
+      .finally(()=>{btn.innerHTML=old});
+  });
+}
+
+/* ====== NAV SCROLLSPY ====== */
+const spyLinks=[...document.querySelectorAll('.nav-links a[href^="#"]:not(.btn)')];
+const spySections=spyLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+function scrollSpy(){
+  const y=window.scrollY+140;let cur=null;
+  spySections.forEach(s=>{if(s.offsetTop<=y)cur=s.id});
+  spyLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+}
+window.addEventListener('scroll',scrollSpy);scrollSpy();
+
+/* ====== YEAR ====== */
+document.getElementById('year').textContent=new Date().getFullYear();
+
+/* ====== NAV / BURGER / PROGRESS / CURSOR ====== */
+const header=document.querySelector('header');
+const cursor=document.getElementById('cursor');
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  header.classList.toggle('scrolled',window.scrollY>30);
+  const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  progress.style.width=p+'%';
+});
+window.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');menu.classList.toggle('open')});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');menu.classList.remove('open')}));
+
+/* ====== REVEAL + COUNTERS ====== */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const cio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){animCount(e.target);cio.unobserve(e.target)}})},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+function animCount(el){
+  const target=+el.dataset.count,suf=el.dataset.suffix||'';let cur=0;const dur=1400,t0=performance.now();
+  function tick(t){const p=Math.min((t-t0)/dur,1);const e=1-Math.pow(1-p,3);cur=Math.round(target*e);el.textContent=cur+suf;if(p<1)requestAnimationFrame(tick)}
+  requestAnimationFrame(tick);
+}
+
+/* ====== 3D TILT ====== */
+const isTouch=matchMedia('(hover:none)').matches;
+if(!isTouch){
+  document.querySelectorAll('.tilt').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(900px) rotateY(${x*9}deg) rotateX(${-y*9}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform=''});
+  });
+}
+
+/* ====== 3D PARTICLE SPHERE (hero canvas) — chrome ====== */
+(function(){
+  const cv=document.getElementById('hero-canvas');if(!cv)return;const ctx=cv.getContext('2d');
+  let W,H,DPR=Math.min(devicePixelRatio||1,2);
+  function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0)}
+  size();addEventListener('resize',size);
+  const N=160,pts=[];
+  for(let i=0;i<N;i++){const phi=Math.acos(1-2*(i+.5)/N),th=Math.PI*(1+Math.sqrt(5))*i;
+    pts.push({x:Math.sin(phi)*Math.cos(th),y:Math.sin(phi)*Math.sin(th),z:Math.cos(phi)});}
+  let ry=0,rx=0,tx=0,ty=0;
+  addEventListener('mousemove',e=>{tx=(e.clientX/innerWidth-.5);ty=(e.clientY/innerHeight-.5)});
+  function rot(p,ax,ay){let{x,y,z}=p;
+    let cz=Math.cos(ay),sz=Math.sin(ay);let x1=x*cz-z*sz,z1=x*sz+z*cz;
+    let cx=Math.cos(ax),sx=Math.sin(ax);let y1=y*cx-z1*sx,z2=y*sx+z1*cx;
+    return{x:x1,y:y1,z:z2}}
+  function loop(){
+    ctx.clearRect(0,0,W,H);ry+=0.0024;rx+=(ty*0.5-rx)*0.05;
+    const cxp=W*0.66,cyp=H*0.5,rad=Math.min(W,H)*0.38;
+    const proj=pts.map(p=>{const r=rot(p,rx,ry+tx*0.6);const sc=1/(2-r.z);return{x:cxp+r.x*rad*1.2,y:cyp+r.y*rad*1.2,z:r.z,s:sc}});
+    // lines
+    for(let i=0;i<proj.length;i++){for(let j=i+1;j<proj.length;j++){
+      const a=proj[i],b=proj[j];const dx=a.x-b.x,dy=a.y-b.y;const d=dx*dx+dy*dy;
+      if(d<3600){const al=(1-d/3600)*0.2*((a.z+b.z)/2+1)/2;ctx.strokeStyle='rgba(190,205,230,'+al+')';ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}}
+    // points
+    proj.forEach(p=>{const al=(p.z+1)/2;ctx.beginPath();ctx.arc(p.x,p.y,1.6*p.s*2.2,0,7);
+      ctx.fillStyle='rgba('+Math.round(200+al*55)+','+Math.round(210+al*45)+','+Math.round(225+al*30)+','+(0.35+al*0.5)+')';ctx.fill()});
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+</script>
+</body>
+</html>
