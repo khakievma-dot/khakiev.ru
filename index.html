@@ -277,6 +277,8 @@ form button{margin-top:8px;justify-content:center}
 .q{padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:600;font-size:1.05rem}
 .q .pl{color:#c9cfd8;font-size:1.4rem;transition:.3s var(--ease);font-family:'JetBrains Mono',monospace}
 .qa.open .pl{transform:rotate(45deg)}
+.qa .a a{color:#eef1f6;border-bottom:1px solid var(--line-2);white-space:nowrap;transition:.2s var(--ease)}
+.qa .a a:hover{border-color:#fff}
 .a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);color:var(--muted)}
 .a div{padding:0 26px 24px}
 
@@ -368,6 +370,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
 .lcard .lcode{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#eef1f6;border:1px dashed var(--line-2);border-radius:6px;padding:3px 8px;cursor:pointer;user-select:none}
 .lcard .lcode:hover{border-color:#fff;background:rgba(255,255,255,.06)}
 .links-grid:not(.expanded) .lcard.lx{display:none}
+.reviews-foot{margin-top:28px;text-align:center}
 .links-foot{margin-top:26px}
 .more-btn{width:100%;padding:15px;border:1px solid var(--line-2);border-radius:14px;background:rgba(255,255,255,.02);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.86rem;cursor:pointer;transition:.25s var(--ease)}
 .more-btn:hover{border-color:#fff;background:rgba(255,255,255,.05)}
@@ -393,7 +396,9 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
 @media(max-width:760px){
   .preview-pitch{padding:40px 26px}
   .preview-form-inner{padding:28px 24px 32px}
-  .preview-tabs{padding:22px 24px 0;flex-direction:column}
+  .preview-card .preview-tabs{padding:22px 18px 4px}
+  .preview-card .preview-tabs .seg{width:100%}
+  .preview-tabs .ptab{flex:1;min-width:0;padding:10px 10px;font-size:.8rem;white-space:normal;line-height:1.2}
   .nav .hstatus{display:none}
   .links-grid{grid-template-columns:1fr}
 }
@@ -408,10 +413,11 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
 .hstatus .hdot{width:7px;height:7px;border-radius:50%;background:#7ee0a6;box-shadow:0 0 8px rgba(126,224,166,.6)}
 
 /* preview tabs */
-.preview-tabs{display:flex;gap:8px;padding:22px 54px 0}
-.ptab{flex:1;text-align:center;padding:13px 12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;color:var(--muted);font-weight:600;font-size:.98rem;transition:.2s var(--ease);background:rgba(255,255,255,.02)}
-.ptab:hover{border-color:var(--line-2);color:var(--text)}
-.ptab.active{border-color:#fff;color:var(--text);background:rgba(255,255,255,.08)}
+.preview-tabs{display:flex;justify-content:center;padding:24px 24px 8px}
+.preview-tabs .seg{display:inline-flex;gap:4px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:5px}
+.ptab{text-align:center;padding:11px 22px;border-radius:10px;cursor:pointer;color:var(--muted);font-weight:600;font-size:.95rem;transition:.2s var(--ease);white-space:nowrap}
+.ptab:hover{color:var(--text)}
+.ptab.active{background:rgba(255,255,255,.1);color:var(--text)}
 
 /* urgent warning */
 .urgent-warn{display:flex;gap:12px;align-items:flex-start;background:rgba(226,112,90,.08);border:1px solid rgba(226,112,90,.35);border-radius:14px;padding:15px 17px;margin-bottom:18px;color:#eabaad;font-size:.9rem;line-height:1.5}
@@ -436,6 +442,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
   #cursor{display:none}
   .stats{grid-template-columns:repeat(2,1fr)}
   .services,.work-grid,.reviews,.mat-grid,.process{grid-template-columns:1fr}
+  .links-grid:not(.expanded) .lcard.lxm{display:none}
   .section-pad{padding:84px 0}
   .wrap{padding:0 20px}
   .modal-body,.calc-left,.calc-right{padding:28px 24px}
@@ -540,6 +547,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
       <div class="svc tilt reveal d3"><div class="ic tilt-in">⛭</div><h3 class="tilt-in">Поддержка</h3><p>Правки, новые блоки, аналитика, ускорение загрузки и техническое сопровождение готового сайта.</p><div class="price">от 3 000 ₽ · <span>по запросу</span></div></div>
       <div class="svc tilt reveal d1"><div class="ic tilt-in">⬡</div><h3 class="tilt-in">Боты и чат-боты</h3><p>Telegram- и веб-боты: приём заявок, оплаты, уведомления и авто-ответы. Разгружают рутину и держат клиента на связи 24/7.</p><div class="price">по проекту · <span>обсуждается</span></div></div>
       <div class="svc tilt reveal d2"><div class="ic tilt-in">⟲</div><h3 class="tilt-in">Автоматизация</h3><p>Связываем сайт, заявки, таблицы и мессенджеры в один процесс. Меньше ручной работы — заявки не теряются.</p><div class="price">по проекту · <span>обсуждается</span></div></div>
+      <div class="svc tilt reveal d3"><div class="ic tilt-in">◈</div><h3 class="tilt-in">SEO-продвижение</h3><p>Базовая оптимизация под поиск: структура, скорость, мета-теги и карта сайта. Чтобы вас находили в Google и Яндексе.</p><div class="price">от 10 000 ₽ · <span>по запросу</span></div></div>
     </div>
   </div>
 </section>
@@ -549,8 +557,10 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
   <div class="wrap">
     <div class="preview-card reveal">
       <div class="preview-tabs">
-        <div class="ptab active" data-ptab="preview">Превью моего сайта</div>
-        <div class="ptab" data-ptab="works">Посмотреть ваши работы</div>
+        <div class="seg">
+          <div class="ptab active" data-ptab="preview">Превью моего сайта</div>
+          <div class="ptab" data-ptab="works">Посмотреть ваши работы</div>
+        </div>
       </div>
       <div class="preview-grid">
         <div class="preview-pitch">
@@ -668,7 +678,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
   <div class="wrap">
     <div class="shead reveal">
       <div><span class="eyebrow">Отзывы</span><h2>Что говорят клиенты</h2></div>
-      <p>Нажмите на отзыв, чтобы прочитать целиком.</p>
+      <button class="btn btn-ghost" id="revOpen" type="button">Оставить отзыв</button>
     </div>
     <div class="reviews" id="reviewGrid"></div>
   </div>
@@ -710,6 +720,13 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
       <div class="qa"><div class="q">Вы работаете один или командой?<span class="pl">+</span></div><div class="a"><div>И так, и так. Небольшие проекты я веду лично. Для крупных задач подключаю свою команду — дизайнера, фронтенд- и бэкенд-разработчиков, тестировщика.</div></div></div>
       <div class="qa"><div class="q">Поможете с хостингом и доменом?<span class="pl">+</span></div><div class="a"><div>Да. Размещу сайт на вашем хостинге, подключу домен, настрою почту и аналитику. Передам все доступы и объясню, как пользоваться.</div></div></div>
       <div class="qa"><div class="q">Что после запуска?<span class="pl">+</span></div><div class="a"><div>Даю гарантию на работу и остаюсь на связи. Можно подключить ежемесячную поддержку: правки, новые блоки, обновления и ускорение.</div></div></div>
+      <div class="qa"><div class="q">Разработать телеграм-бота дорого?<span class="pl">+</span></div><div class="a"><div>Сам по себе бот — нет. Но чтобы он что-то делал, уже нужны деньги, а сколько именно — зависит от того, сколько всего он умеет и насколько сложно это реализовать.</div></div></div>
+      <div class="qa"><div class="q">Делаете приложение, которое по одному клику взламывает всё?<span class="pl">+</span></div><div class="a"><div>Нет ) Но если у вас вдруг есть такое — скиньте, мы тоже хотим.</div></div></div>
+      <div class="qa"><div class="q">На сайте написано «Приём открыт» — что это значит?<span class="pl">+</span></div><div class="a"><div>Что я сейчас свободен и беру новые заказы. Можно смело оставлять заявку — отвечу быстро.</div></div></div>
+      <div class="qa"><div class="q">А если «Приём заказов приостановлен»?<span class="pl">+</span></div><div class="a"><div>Значит, я сейчас загружен и временно не беру новые проекты. Но можно встать в лист ожидания — напишу, как только освобожусь. А если задача срочная, есть отдельная кнопка «Это срочно».</div></div></div>
+      <div class="qa"><div class="q">Что у вас дешевле всего?<span class="pl">+</span></div><div class="a"><div>Консультация — она вообще бесплатная )</div></div></div>
+      <div class="qa"><div class="q">Хочу к вам в команду или на подхват — можно?<span class="pl">+</span></div><div class="a"><div>Можно. <a href="#" class="faq-join">Заполните заявку</a> — по клику откроется короткая форма. Свяжусь, когда появятся задачи.</div></div></div>
+      <div class="qa"><div class="q">Вайб-кодеры вам нужны?<span class="pl">+</span></div><div class="a"><div>Нужны — если знаешь базу и умеешь читать код. ИИ для тебя — ускоритель разработки, а не бездумный копипаст: ты понимаешь, что сгенерировала нейросеть, и можешь заставить это работать. Если это про тебя — <a href="#" class="faq-join">заполняй заявку</a>.</div></div></div>
     </div>
   </div>
 </section>
@@ -768,6 +785,31 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
     </div>
   </div>
 </footer>
+
+<!-- SUBMIT REVIEW MODAL -->
+<div class="modal" id="revModal">
+  <div class="modal-bg" data-close></div>
+  <div class="rep-card">
+    <button class="modal-close" data-close>✕</button>
+    <div class="rep-in">
+      <div class="rep-title">Оставить отзыв</div>
+      <p class="rep-intro">Будем честны — плохие отзывы мы не публикуем. Так что пишите сразу хороший, если хотите увидеть его на сайте )</p>
+      <form id="revForm">
+        <label for="rvName">Как вас зовут</label>
+        <input type="text" id="rvName" name="Имя" placeholder="Имя" required>
+        <label for="rvRole">Компания или род занятий</label>
+        <input type="text" id="rvRole" name="О вас" placeholder="Например: студия флористики">
+        <label for="rvText">Ваш отзыв</label>
+        <textarea id="rvText" name="Отзыв" rows="4" placeholder="Что понравилось в работе" required></textarea>
+        <label for="rvContact">Контакт — по желанию</label>
+        <input type="text" id="rvContact" name="Контакт" placeholder="Почта или @username">
+        <button type="submit" class="btn btn-accent">Отправить отзыв <span class="arr">→</span></button>
+        <div class="form-note">// опубликую после проверки</div>
+      </form>
+      <div class="form-ok" id="revOk"><div class="big">Спасибо!</div><p style="color:var(--muted)">Прочитаю ваш отзыв и опубликую, если всё хорошо )</p></div>
+    </div>
+  </div>
+</div>
 
 <!-- JOIN TEAM MODAL -->
 <div class="modal" id="joinModal">
@@ -838,7 +880,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 40px;margin-top:120px}
      false = приём на паузе (лист ожидания + кнопка «Это срочно»)
    Поменяйте одно слово ниже и сохраните файл — сайт перестроится сам.
    ============================================================ */
-const ПРИЁМ_ЗАКАЗОВ = true;
+const ПРИЁМ_ЗАКАЗОВ = false;
 
 /* режимы формы контактов: normal / waitlist / urgent */
 function setContactMode(mode){
@@ -931,17 +973,17 @@ const usefulLinks = [
   {icon:'▤', title:'VDSka', desc:'Серверы с высокой пропускной способностью.', url:'https://vdska.ru/?p=59489', ref:true},
   {icon:'⬡', title:'Домен-бот (Telegram)', desc:'Покупка доменов прямо в Telegram, с записями и переносом на Cloudflare.', url:'https://t.me/Adomain_bot?start=ref_3cfc8794', ref:true},
   {icon:'◭', title:'Play2Go', desc:'Недорогие серверы, подойдут для тестов и временных задач.', url:'https://play2go.cloud/?ref_id=zefp2TW-dB0', ref:true},
+  {icon:'✕', title:'XAMA', desc:'Стабильная сеть.', url:'https://xama.life/', show:'always'},
+  {icon:'▧', title:'HTML Viewer', desc:'Просмотр вёрстки в разных разрешениях, с CSS и скриптами.', url:'https://codeshack.io/html-viewer/', show:'pc'},
   {icon:'▥', title:'iLoveIMG', desc:'Онлайн-конвертер и редактор изображений.', url:'https://www.iloveimg.com/ru'},
   {icon:'✦', title:'Cleanup.pictures', desc:'Удаление объектов и логотипов с фото. Есть бесплатная версия.', url:'https://cleanup.pictures/'},
-  {icon:'▧', title:'HTML Viewer', desc:'Просмотр вёрстки в разных разрешениях, с CSS и скриптами.', url:'https://codeshack.io/html-viewer/'},
   {icon:'◨', title:'Скриншотер для Chrome', desc:'Расширение для скриншотов страниц с удобными функциями.', url:'https://chromewebstore.google.com/detail/mcbpblocgmgfnpjjppndjkmgjaogfceg'},
   {icon:'◧', title:'Скриншотер (skrinshoter.ru)', desc:'Скриншоты и запись видео в один клик. Бесплатно для Windows и Mac.', url:'https://skrinshoter.ru/'},
   {icon:'⌗', title:'DNS Checker', desc:'Проверка DNS-записей по всему миру.', url:'https://dnschecker.org/'},
   {icon:'◎', title:'2IP.ru', desc:'Проверка своего IP и сетевых параметров.', url:'https://2ip.ru/'},
   {icon:'◉', title:'2IP.io', desc:'Проверка IP из-за рубежа.', url:'https://2ip.io/'},
   {icon:'❖', title:'Чат-бот (без VPN)', desc:'ИИ-чат без регистрации, работает в РФ.', url:'https://chatbotchatapp.com/ru'},
-  {icon:'◫', title:'PiliApp', desc:'Флаги, символы и мелкие веб-утилиты.', url:'https://ru.piliapp.com/'},
-  {icon:'✕', title:'XAMA', desc:'Стабильная сеть.', url:'https://xama.life/'}
+  {icon:'◫', title:'PiliApp', desc:'Флаги, символы и мелкие веб-утилиты.', url:'https://ru.piliapp.com/'}
 ];
 
 const reviews = [
@@ -953,12 +995,18 @@ const reviews = [
 /* ====== RENDER USEFUL LINKS ====== */
 const linksGrid=document.getElementById('linksGrid');
 if(linksGrid){
-  let hidden=0;
+  let hiddenAll=0,hiddenMobile=0;
   usefulLinks.forEach((l,i)=>{
     const a=document.createElement('a');
-    const extra=!l.ref;                        // не-реф прячем под «Показать ещё»
-    if(extra)hidden++;
-    a.className='lcard '+(extra?'lx':'reveal d'+((i%3)+1));
+    /* уровни видимости:
+       ref или show:'always' — видно всегда (ПК и телефон)
+       show:'pc'             — видно на ПК, скрыто на телефоне (до «Показать ещё»)
+       иначе                 — скрыто везде (до «Показать ещё») */
+    let cls;
+    if(l.ref||l.show==='always'){cls='reveal d'+((i%3)+1);}
+    else if(l.show==='pc'){cls='lxm';hiddenMobile++;}
+    else{cls='lx';hiddenAll++;}
+    a.className='lcard '+cls;
     a.href=l.url;a.target='_blank';a.rel='noopener';
     let host='';try{host=new URL(l.url).hostname.replace('www.','')}catch(e){host=l.url}
     let bonus='';
@@ -984,7 +1032,9 @@ if(linksGrid){
   /* «показать ещё» — раскрывает бесплатные сервисы */
   var moreBtn=document.getElementById('linksMore');
   if(moreBtn){
-    if(hidden===0){moreBtn.style.display='none';}
+    var isMobile=window.matchMedia('(max-width:760px)').matches;
+    var hidden=hiddenAll+(isMobile?hiddenMobile:0);
+    if(hidden<=0){moreBtn.style.display='none';}
     else{
       moreBtn.textContent='Показать ещё ('+hidden+')';
       moreBtn.addEventListener('click',function(){linksGrid.classList.add('expanded');moreBtn.style.display='none';});
@@ -992,10 +1042,33 @@ if(linksGrid){
   }
 }
 
+/* ====== ОТПРАВКА ОТЗЫВА ====== */
+var revOpen=document.getElementById('revOpen');
+if(revOpen)revOpen.addEventListener('click',function(){showModal('revModal');});
+var revForm=document.getElementById('revForm');
+if(revForm){
+  revForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=this.querySelector('button[type=submit]'),old=btn.innerHTML;btn.innerHTML='Отправляю...';
+    var fd=new FormData(this);fd.append('_subject','Новый отзыв — khakiev.ru');
+    fetch('https://formsubmit.co/ajax/khakiev.m.a@list.ru',{method:'POST',headers:{'Accept':'application/json'},body:fd})
+      .then(function(r){return r.json();})
+      .then(function(){revForm.style.display='none';document.getElementById('revOk').classList.add('show');toast('Отзыв отправлен ✓');})
+      .catch(function(){
+        var n=fd.get('Имя'),o=fd.get('О вас'),t=fd.get('Отзыв'),c=fd.get('Контакт');
+        window.location.href='mailto:khakiev.m.a@list.ru?subject='+encodeURIComponent('Новый отзыв — khakiev.ru')+'&body='+encodeURIComponent('Имя: '+n+'\nО вас: '+o+'\nОтзыв: '+t+'\nКонтакт: '+c);
+      })
+      .finally(function(){btn.innerHTML=old;});
+  });
+}
+
 /* ====== ЗАЯВКА В КОМАНДУ / СОТРУДНИЧЕСТВО ====== */
 ['joinFoot','joinAbout'].forEach(function(id){
   var el=document.getElementById(id);
   if(el)el.addEventListener('click',function(e){e.preventDefault();showModal('joinModal');});
+});
+document.querySelectorAll('.faq-join').forEach(function(el){
+  el.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();showModal('joinModal');});
 });
 var joinForm=document.getElementById('joinForm');
 if(joinForm){
